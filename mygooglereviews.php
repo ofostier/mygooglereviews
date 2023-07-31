@@ -258,13 +258,16 @@ class mygooglereviews extends Module
 
          //$link = new Link();
          $link_get_placeid = $this->context->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'));
-         $link_refresh_reviews = $this->context->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
+         //$link_refresh_reviews = $this->context->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
          //echo $link_refresh_reviews;
-        Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
+        //Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
 
         $this->context->controller->addJS($this->_path.'views/js/configuration.js');
 
         // display any message, then the form
+
+        //var_dump($link_get_placeid);
+
         return $output . $this->displayForm(Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
     }
 
@@ -284,6 +287,7 @@ class mygooglereviews extends Module
                     'title' => $this->l('Settings'),
                 ],
                 'input' => [
+                    
                     [
                         'type' => 'text',
                         'label' => $this->l('Your establishment address'),
@@ -310,6 +314,14 @@ class mygooglereviews extends Module
                             'readonly' => 'true'
                         ]
                     ],
+                    [
+                        'type' => 'text',
+                        'label' => $this->l('test'),
+                        'name' => 'MYGGOGLEREVIEWS_AJAX_ROUTE',
+                        'size' => 255,
+                        'required' => true,
+                        //'value' => $this->context->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'))
+                    ],
                 ],
                 
                 'buttons' => [
@@ -319,7 +331,6 @@ class mygooglereviews extends Module
                     'id' => 'refresh_placeid',
                     'name' => 'refresh_placeid',
                     'class' => 'pull-right btn btn-success btn-lg',
-                    //'js' => 'getPlaceid()',
                     ]
                 ],
                 'submit' => [
@@ -346,12 +357,14 @@ class mygooglereviews extends Module
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->currentIndex = AdminController::$currentIndex . '&' . http_build_query(['configure' => $this->name]);
         $helper->submit_action = 'submit' . $this->name;
+        
        
 
         // Default language
         $helper->default_form_language = (int) Configuration::get('PS_LANG_DEFAULT');
 
         // Load current value into the form
+        $helper->fields_value['MYGGOGLEREVIEWS_AJAX_ROUTE'] = $this->context->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'));
         $helper->fields_value['MYGGOGLEREVIEWS_ADDRESS'] = Tools::getValue('MYGGOGLEREVIEWS_ADDRESS', Configuration::get('MYGGOGLEREVIEWS_ADDRESS'));
         $helper->fields_value['MYGGOGLEREVIEWS_GOOGLE_TOKEN'] = Tools::getValue('MYGGOGLEREVIEWS_GOOGLE_TOKEN', Configuration::get('MYGGOGLEREVIEWS_GOOGLE_TOKEN'));
         $helper->fields_value['MYGGOGLEREVIEWS_GOOGLE_PLACEID'] = Tools::getValue('MYGGOGLEREVIEWS_GOOGLE_PLACEID', Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
