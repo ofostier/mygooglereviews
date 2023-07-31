@@ -1,0 +1,500 @@
+{#**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0).
+ * It is also available through the world-wide-web at this URL: https://opensource.org/licenses/AFL-3.0
+ *#}
+
+{% extends '@Modules/mygooglereviews/views/templates/admin/layout.html.twig' %}
+{% form_theme form 'PrestaShopBundle:Admin/TwigTemplateForm:prestashop_ui_kit_base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/modules/mygooglereviews/views/css/stars.css?2" /> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> 
+{% endblock %}
+
+{% block controllerTitle %}{{ 'Set My Google Reviews'|trans({}, 'Modules.Controllertab.Admin') }}{% endblock %}
+{% block controllerDescription %}
+
+<div class="sk-ww-google-reviews sk-dashboard-iframe-preview" data-embed-id="173104" style="height: auto;width: 1163px;/* font-family: &quot;Century Gothic&quot;, sans-serif; */background-color: rgb(255, 255, 255);">
+  <div class="display-none sk-settings" style="display:none;">
+    <div class="excluded_albums"></div><div class="post_count">50</div>
+    <div class="item_content_padding">30</div><div class="item_border_radius">3</div>
+    
+    <div class="long_lived_user_access_token"></div></div>
+    <div class="first_loading_animation" style="text-align: center; width: 100%; display: none;">
+    <img src="https://widgets.sociablekit.com/images/ripple.svg" class="loading-img" style="width: auto !important; display: none;" alt="Post image"></div><div class="" style="display:block;overflow:hidden;">
+    <div class=" sk-ww-google-reviews-items">
+    <div class="sk_reviews_grid" style="position: relative; height: 569.375px;"><div class="sk_reviews_grid-sizer" style="width: 33.33%;"></div>
+    <div class="sk_reviews_grid-item sk_reviews_badge_container" style="cursor: pointer; width: 33.33%; position: absolute; left: 0%; top: 0px;">
+    <div class="sk_reviews_grid-content badge-content" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(83, 83, 83); border-radius: 3px;">
+      <div class="sk_reviews_badge" style="font-size: 17px; border-color: rgb(255, 255, 255);"><a class="sk-google-reviews-badge-info" href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJb4jLDFQDyhIR-N-AV2AKLqs" target="_blank" style="color: rgb(85, 85, 85);" title="5.0 Google Overall RatingKrysakids77 Reviews">
+        <div class="sk_reviews_num_icon" style="background-color: transparent; color: rgb(83, 83, 83);">5.0 <span class="sk_fb_stars" style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span></div>
+        <div style="width: 100%; background-color: transparent; color: rgb(83, 83, 83);" class="sk-badge-name"><div style="padding: 5px 0px; font-weight: bold; background-color: transparent; color: rgb(83, 83, 83);">Google Overall Rating</div><div class="sk-google-place-name" style="text-transform: none; background-color: transparent; color: rgb(83, 83, 83);">Krysakids</div>
+        <div style="padding: 5px 0px; background-color: transparent; color: rgb(83, 83, 83);"><div class="sk_google_review_count" style="background-color: transparent; color: rgb(83, 83, 83);">77 Reviews</div></div></div></a></div></div></div><div class="sk_reviews_grid-item " style="cursor: pointer; width: 33.33%; position: absolute; left: 33.3298%; top: 0px;"><div class="sk_reviews_grid-content" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); border-radius: 3px;">
+          <div class="sk-ww-google-reviews-content review-list" style="padding: 30px;"><div class="sk-ww-google-reviews-content-container"><div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+            <div class="sk-reviewer-pic"><a href="https://www.google.com/maps/contrib/107468858157790311951/reviews" target="_blank" style="color: rgb(52, 128, 220);" title="">
+              <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtemPqAyCVDf3Fdgf0k1iY4rZsh0jRR4WDlwI6yrVBBG=w100-h100-p-rp-mo-br40" alt="Post image"></a></div>
+              <div class="sk-reviewer-name-action" style="margin-top:10px;"><a style="overflow-wrap: break-word; color: rgb(52, 128, 220);" href="https://www.google.com/maps/contrib/107468858157790311951/reviews" target="_blank" title="Françoise LEBRE"><strong>Françoise LEBRE</strong></a> </div>
+            </div>
+            <div class="google-reviews-item sk-ww-google-reviews-review-text" data-link="https://www.google.com/maps/contrib/107468858157790311951/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" style="color: rgb(85, 85, 85); font-size: 17px;"><div class="sk-ww-google-reviews-review-text-content">
+              <div class="sk_fb_stars" style="font-family: &quot;Century Gothic&quot;, sans-serif; color: rgb(235, 110, 0);"> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+            </div>
+            <div style="font-family: &quot;Century Gothic&quot;, sans-serif;">Je me sers dans ce magasin depuis l'ouverture pour mes petits enfants et je le recommande : trés bon accueil, produits au top, vetements super sympas pour tous les ages à des prix raisonnables</div>
+          </div>
+        </div>
+        <a target="_blank" href="https://www.google.com/maps/contrib/107468858157790311951/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" style="color: rgb(52, 128, 220);" title=" View on Google"><img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> View on Google</a>
+      </div>
+    </div>
+    <div class="white-popup mfp-hide sk-review-popup" style="color: rgb(33, 37, 41); font-family: &quot;Century Gothic&quot;, sans-serif; padding: 30px; background: rgb(255, 255, 255);">
+      <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+        <div class="sk-reviewer-pic"><a href="https://www.google.com/maps/contrib/107468858157790311951/reviews" target="_blank" title="" style="color: rgb(2, 128, 254);">
+          <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtemPqAyCVDf3Fdgf0k1iY4rZsh0jRR4WDlwI6yrVBBG=w100-h100-p-rp-mo-br40" alt="Post image"></a>
+          </div><div class="sk-reviewer-name-action">
+            <a style="overflow-wrap: break-word; color: rgb(2, 128, 254);" href="https://www.google.com/maps/contrib/107468858157790311951/reviews" target="_blank" title="Françoise LEBRE"><strong>Françoise LEBRE</strong></a> 
+            <label class="sk_review_text">reviewed</label> 
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJb4jLDFQDyhIR-N-AV2AKLqs" target="_blank" title="Krysakids" style="color: rgb(2, 128, 254);">Krysakids</a> 
+            <div class="sk_fb_stars" style="color: rgb(235, 110, 0);"> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+            </div>
+          </div>
+          <hr class="sk-separator">
+        </div>
+        <div class="sk-ww-google-reviews-review-text-popup">Je me sers dans ce magasin depuis l'ouverture pour mes petits enfants et je le recommande : trés bon accueil, produits au top, vetements super sympas pour tous les ages à des prix raisonnables</div>
+        <div class="sk-ww-google-reviews-owners-response-image" style="padding-bottom: 30px;"></div>
+        <hr class="sk-separator">
+        <div class="sk-google-review-button-container">
+          <a target="_blank" href="https://www.google.com/maps/contrib/107468858157790311951/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" title=" View on Google" style="color: rgb(2, 128, 254);">
+            <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> 
+            <span>View on Google</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="sk_reviews_grid-content" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); border-radius: 3px;">
+      <div class="sk-ww-google-reviews-content review-list" style="padding: 30px;">
+        <div class="sk-ww-google-reviews-content-container">
+          <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+            <div class="sk-reviewer-pic">
+              <a href="https://www.google.com/maps/contrib/112674877842774226179/reviews" target="_blank" style="color: rgb(52, 128, 220);" title="">
+                <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtcVxqkvzj92bFfuG-rSQEjUNeomvxor0qZT5TGhk8hW=w100-h100-p-rp-mo-br40" alt="Post image">
+              </a>
+            </div>
+            <div class="sk-reviewer-name-action" style="margin-top:10px;">
+              <a style="overflow-wrap: break-word; color: rgb(52, 128, 220);" href="https://www.google.com/maps/contrib/112674877842774226179/reviews" target="_blank" title="Nicolas Pion"><strong>Nicolas Pion</strong></a> 
+            </div>
+          </div>
+          <div class="google-reviews-item sk-ww-google-reviews-review-text" data-link="https://www.google.com/maps/contrib/112674877842774226179/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" style="color: rgb(85, 85, 85); font-size: 17px;">
+            <div class="sk-ww-google-reviews-review-text-content">
+              <div class="sk_fb_stars" style="font-family: &quot;Century Gothic&quot;, sans-serif; color: rgb(235, 110, 0);"> 
+                <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+              </div>
+              <div style="font-family: &quot;Century Gothic&quot;, sans-serif;">Super accueil et merci!!!</div>
+            </div>
+          </div>
+          <a target="_blank" href="https://www.google.com/maps/contrib/112674877842774226179/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" style="color: rgb(52, 128, 220);" title=" View on Google">
+            <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> View on Google
+          </a>
+        </div>
+      </div>
+      <div class="white-popup mfp-hide sk-review-popup" style="color: rgb(33, 37, 41); font-family: &quot;Century Gothic&quot;, sans-serif; padding: 30px; background: rgb(255, 255, 255);">
+        <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+          <div class="sk-reviewer-pic">
+            <a href="https://www.google.com/maps/contrib/112674877842774226179/reviews" target="_blank" title="" style="color: rgb(2, 128, 254);">
+              <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtcVxqkvzj92bFfuG-rSQEjUNeomvxor0qZT5TGhk8hW=w100-h100-p-rp-mo-br40" alt="Post image">
+            </a>
+          </div>
+          <div class="sk-reviewer-name-action">
+            <a style="overflow-wrap: break-word; color: rgb(2, 128, 254);" href="https://www.google.com/maps/contrib/112674877842774226179/reviews" target="_blank" title="Nicolas Pion">
+              <strong>Nicolas Pion</strong>
+            </a>
+            <label class="sk_review_text">reviewed</label> 
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJb4jLDFQDyhIR-N-AV2AKLqs" target="_blank" title="Krysakids" style="color: rgb(2, 128, 254);">Krysakids</a>
+            <div class="sk_fb_stars" style="color: rgb(235, 110, 0);"> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+              <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+            </div>
+          </div>
+          <hr class="sk-separator">
+        </div>
+        <div class="sk-ww-google-reviews-review-text-popup">Super accueil et merci!!!</div>
+        <div class="sk-ww-google-reviews-owners-response-image" style="padding-bottom: 30px;"></div>
+        <hr class="sk-separator">
+        <div class="sk-google-review-button-container">
+          <a target="_blank" href="https://www.google.com/maps/contrib/112674877842774226179/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" title=" View on Google" style="color: rgb(2, 128, 254);">
+            <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> 
+            <span>View on Google</span></a></div></div></div></div><div class="sk_reviews_grid-item " style="cursor: pointer; width: 33.33%; position: absolute; left: 66.6595%; top: 219.375px;">
+              <div class="sk_reviews_grid-content" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); border-radius: 3px;">
+                <div class="sk-ww-google-reviews-content review-list" style="padding: 30px;">
+                  <div class="sk-ww-google-reviews-content-container">
+                    <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+                      <div class="sk-reviewer-pic">
+                        <a href="https://www.google.com/maps/contrib/100284387638698677462/reviews" target="_blank" style="color: rgb(52, 128, 220);" title="">
+                          <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtfaIoReZ4P8YFm-uVfZlHDC5LRhF1YF0eK0cZqaZPDT=w100-h100-p-rp-mo-br40" alt="Post image">
+                        </a>
+                      </div>
+                      <div class="sk-reviewer-name-action" style="margin-top:10px;">
+                        <a style="overflow-wrap: break-word; color: rgb(52, 128, 220);" href="https://www.google.com/maps/contrib/100284387638698677462/reviews" target="_blank" title="Claire Pourcin">
+                          <strong>Claire Pourcin</strong>
+                        </a> 
+                      </div>
+                    </div>
+                    <div class="google-reviews-item sk-ww-google-reviews-review-text" data-link="https://www.google.com/maps/contrib/100284387638698677462/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" style="color: rgb(85, 85, 85); font-size: 17px;">
+                      <div class="sk-ww-google-reviews-review-text-content">
+                        <div class="sk_fb_stars" style="font-family: &quot;Century Gothic&quot;, sans-serif; color: rgb(235, 110, 0);"> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+                        </div>
+                        <div style="font-family: &quot;Century Gothic&quot;, sans-serif;">Magasin chaleureux, personnel très agréable et toujours de bons conseils. Un magasin que je recommande vraiment pour trouver des produits de qualités pour tout budget pour nos loulous.</div>
+                      </div>
+                    </div>
+                    <a target="_blank" href="https://www.google.com/maps/contrib/100284387638698677462/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" style="color: rgb(52, 128, 220);" title=" View on Google">
+                      <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> View on Google
+                    </a>
+                  </div>
+                </div>
+                <div class="white-popup mfp-hide sk-review-popup" style="color: rgb(33, 37, 41); font-family: &quot;Century Gothic&quot;, sans-serif; padding: 30px; background: rgb(255, 255, 255);">
+                  <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+                    <div class="sk-reviewer-pic">
+                      <a href="https://www.google.com/maps/contrib/100284387638698677462/reviews" target="_blank" title="" style="color: rgb(2, 128, 254);">
+                        <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtfaIoReZ4P8YFm-uVfZlHDC5LRhF1YF0eK0cZqaZPDT=w100-h100-p-rp-mo-br40" alt="Post image">
+                      </a>
+                    </div>
+                    <div class="sk-reviewer-name-action">
+                      <a style="overflow-wrap: break-word; color: rgb(2, 128, 254);" href="https://www.google.com/maps/contrib/100284387638698677462/reviews" target="_blank" title="Claire Pourcin">
+                        <strong>Claire Pourcin</strong>
+                      </a> 
+                      <label class="sk_review_text">reviewed</label> 
+                      <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJb4jLDFQDyhIR-N-AV2AKLqs" target="_blank" title="Krysakids" style="color: rgb(2, 128, 254);">Krysakids</a> 
+                      <div class="sk_fb_stars" style="color: rgb(235, 110, 0);"> 
+                      <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                      <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                      <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                      <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                      <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <hr class="sk-separator">
+                </div>
+                <div class="sk-ww-google-reviews-review-text-popup">Magasin chaleureux, personnel très agréable et toujours de bons conseils. Un magasin que je recommande vraiment pour trouver des produits de qualités pour tout budget pour nos loulous.</div>
+                <div class="sk-ww-google-reviews-owners-response-image" style="padding-bottom: 30px;"></div>
+                <hr class="sk-separator"><div class="sk-google-review-button-container">
+                <a target="_blank" href="https://www.google.com/maps/contrib/100284387638698677462/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" title=" View on Google" style="color: rgb(2, 128, 254);">
+                  <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> 
+                  <span>View on Google</span></a></div></div></div></div><div class="sk_reviews_grid-item " style="cursor: pointer; width: 33.33%; position: absolute; left: 0%; top: 230px;">
+                  <div class="sk_reviews_grid-content" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); border-radius: 3px;">
+                    <div class="sk-ww-google-reviews-content review-list" style="padding: 30px;">
+                      <div class="sk-ww-google-reviews-content-container">
+                        <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+                          <div class="sk-reviewer-pic">
+                            <a href="https://www.google.com/maps/contrib/117090939108929542524/reviews" target="_blank" style="color: rgb(52, 128, 220);" title="">
+                              <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtc7evPgobgDFP8_go2kOc6edud90pM5QqplJMgt4C9F=w100-h100-p-rp-mo-br40" alt="Post image">
+                            </a>
+                          </div>
+                        <div class="sk-reviewer-name-action" style="margin-top:10px;">
+                          <a style="overflow-wrap: break-word; color: rgb(52, 128, 220);" href="https://www.google.com/maps/contrib/117090939108929542524/reviews" target="_blank" title="Jennifer FERTAULT">
+                            <strong>Jennifer FERTAULT</strong>
+                          </a> 
+                        </div>
+                      </div>
+                      <div class="google-reviews-item sk-ww-google-reviews-review-text" data-link="https://www.google.com/maps/contrib/117090939108929542524/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" style="color: rgb(85, 85, 85); font-size: 17px;">
+                        <div class="sk-ww-google-reviews-review-text-content">
+                          <div class="sk_fb_stars" style="font-family: &quot;Century Gothic&quot;, sans-serif; color: rgb(235, 110, 0);"> 
+                            <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                            <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                            <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                            <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                            <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+                          </div>
+                          <div style="font-family: &quot;Century Gothic&quot;, sans-serif;">Première fois que je commande auprès de ce site internet, je n’ai jamais vu une livraison aussi rapide. Je ne connaissais pas du tout ce magasin, mais ça ne sera certainement pas ma dernière commande. Je suis ravie, je recommande fortement.</div>
+                        </div>
+                      </div>
+                      <a target="_blank" href="https://www.google.com/maps/contrib/117090939108929542524/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" style="color: rgb(52, 128, 220);" title=" View on Google">
+                        <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> View on Google
+                      </a>
+                    </div>
+                  </div>
+                  <div class="white-popup mfp-hide sk-review-popup" style="color: rgb(33, 37, 41); font-family: &quot;Century Gothic&quot;, sans-serif; padding: 30px; background: rgb(255, 255, 255);">
+                    <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+                      <div class="sk-reviewer-pic"><a href="https://www.google.com/maps/contrib/117090939108929542524/reviews" target="_blank" title="" style="color: rgb(2, 128, 254);">
+                        <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTtc7evPgobgDFP8_go2kOc6edud90pM5QqplJMgt4C9F=w100-h100-p-rp-mo-br40" alt="Post image">
+                        </a>
+                      </div>
+                      <div class="sk-reviewer-name-action">
+                        <a style="overflow-wrap: break-word; color: rgb(2, 128, 254);" href="https://www.google.com/maps/contrib/117090939108929542524/reviews" target="_blank" title="Jennifer FERTAULT">
+                          <strong>Jennifer FERTAULT</strong>
+                        </a> 
+                        <label class="sk_review_text">reviewed</label> 
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJb4jLDFQDyhIR-N-AV2AKLqs" target="_blank" title="Krysakids" style="color: rgb(2, 128, 254);">Krysakids</a> 
+                        <div class="sk_fb_stars" style="color: rgb(235, 110, 0);"> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+                        </div>
+                      </div>
+                      <hr class="sk-separator">
+                    </div>
+                    <div class="sk-ww-google-reviews-review-text-popup">Première fois que je commande auprès de ce site internet, je n’ai jamais vu une livraison aussi rapide. Je ne connaissais pas du tout ce magasin, mais ça ne sera certainement pas ma dernière commande. Je suis ravie, je recommande fortement.</div>
+                    <div class="sk-ww-google-reviews-owners-response-image" style="padding-bottom: 30px;"></div>
+                    <hr class="sk-separator">
+                    <div class="sk-google-review-button-container">
+                      <a target="_blank" href="https://www.google.com/maps/contrib/117090939108929542524/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" title=" View on Google" style="color: rgb(2, 128, 254);">
+                        <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> 
+                        <span>View on Google</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk_reviews_grid-item " style="cursor: pointer; width: 33.33%; position: absolute; left: 33.3298%; top: 319.375px;">
+                <div class="sk_reviews_grid-content" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); border-radius: 3px;">
+                  <div class="sk-ww-google-reviews-content review-list" style="padding: 30px;">
+                    <div class="sk-ww-google-reviews-content-container">
+                      <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+                        <div class="sk-reviewer-pic">
+                          <a href="https://www.google.com/maps/contrib/108514431954634750602/reviews" target="_blank" style="color: rgb(52, 128, 220);" title="">
+                            <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTteXmaeU8B6azoCNAy6JL-gKNmChfG623HwHtY0T9S4s=w100-h100-p-rp-mo-br40" alt="Post image">
+                          </a>
+                        </div>
+                        <div class="sk-reviewer-name-action" style="margin-top:10px;">
+                          <a style="overflow-wrap: break-word; color: rgb(52, 128, 220);" href="https://www.google.com/maps/contrib/108514431954634750602/reviews" target="_blank" title="Eudoxie Magnier">
+                            <strong>Eudoxie Magnier</strong>
+                          </a> 
+                        </div>
+                      </div>
+                    <div class="google-reviews-item sk-ww-google-reviews-review-text" data-link="https://www.google.com/maps/contrib/108514431954634750602/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" style="color: rgb(85, 85, 85); font-size: 17px;">
+                      <div class="sk-ww-google-reviews-review-text-content">
+                        <div class="sk_fb_stars" style="font-family: &quot;Century Gothic&quot;, sans-serif; color: rgb(235, 110, 0);"> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                          <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+                        </div>
+                        <div style="font-family: &quot;Century Gothic&quot;, sans-serif;">Très joli magasin , plein de belle choses . Personnel très accueillant.</div>
+                      </div>
+                    </div>
+                    <a target="_blank" href="https://www.google.com/maps/contrib/108514431954634750602/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" style="color: rgb(52, 128, 220);" title=" View on Google">
+                      <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> View on Google
+                    </a>
+                  </div>
+                </div>
+                <div class="white-popup mfp-hide sk-review-popup" style="color: rgb(33, 37, 41); font-family: &quot;Century Gothic&quot;, sans-serif; padding: 30px; background: rgb(255, 255, 255);">
+                  <div class="sk-ww-google-reviews-reviewer" style="font-size: 17px;">
+                    <div class="sk-reviewer-pic">
+                      <a href="https://www.google.com/maps/contrib/108514431954634750602/reviews" target="_blank" title="" style="color: rgb(2, 128, 254);">
+                        <img width="50" height="50" src="https://lh3.googleusercontent.com/a/AAcHTteXmaeU8B6azoCNAy6JL-gKNmChfG623HwHtY0T9S4s=w100-h100-p-rp-mo-br40" alt="Post image">
+                      </a>
+                    </div>
+                    <div class="sk-reviewer-name-action">
+                      <a style="overflow-wrap: break-word; color: rgb(2, 128, 254);" href="https://www.google.com/maps/contrib/108514431954634750602/reviews" target="_blank" title="Eudoxie Magnier">
+                        <strong>Eudoxie Magnier</strong>
+                      </a> 
+                      <label class="sk_review_text">reviewed</label> 
+                      <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJb4jLDFQDyhIR-N-AV2AKLqs" target="_blank" title="Krysakids" style="color: rgb(2, 128, 254);">
+                        Krysakids
+                      </a> 
+                      <div class="sk_fb_stars" style="color: rgb(235, 110, 0);"> 
+                        <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                        <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                        <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                        <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span> 
+                        <span style="font-family: FontAwesome !important; color: rgb(235, 110, 0);" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                    <hr class="sk-separator">
+                  </div>
+                  <div class="sk-ww-google-reviews-review-text-popup">Très joli magasin , plein de belle choses .Personnel t rèsaccueillant.</div>
+                  <div class="sk-ww-google-reviews-owners-response-image" style="padding-bottom: 30px;"></div>
+                  <hr class="sk-separator">
+                  <div class="sk-google-review-button-container">
+                    <a target="_blank" href="https://www.google.com/maps/contrib/108514431954634750602/place/ChIJb4jLDFQDyhIR-N-AV2AKLqs" class="sk-google-review-button-more" title=" View on Google" style="color: rgb(2, 128, 254);">
+                      <img width="20" height="20" style="width: 20px !important; height: 20px !important;" class="sk-google-reviews-icon" src="https://widgets.sociablekit.com/images/google_icon.png" alt="Post image"> 
+                      <span>View on Google</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sk-below-button-container" style="display: block; overflow: hidden; margin: 0px; padding: 4.5px; width: 1152px;"></div>
+      </div>
+    </div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item active">
+    <a data-toggle="tab" class="nav-link active" href="#home">Set Place ID</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#score_tab">Your Score</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#reviews_tab">Your Reviews</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active show">
+    <h3>Place ID</h3>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Address</th>
+        <th>Place ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><i class="fa fa-map-marker" aria-hidden="true"></i></th>
+        <td>{{ address }}</td>
+        <td>{{ placeid }}</td>
+        <td>
+          <button type="button" id="refresh_reviews"  class="btn btn-outline-warning">Refresh </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    
+    {# {{ form_start(form) }}
+
+    {{ form_end(form) }} #}
+
+     
+    
+  </div>
+  <div id="score_tab" class="tab-pane fade">
+    <h3>Your score</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Establishment ID</th>
+          <th>Establishment Score</th>
+          <th>Establishment Nb Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for score in scores %}
+        <tr>
+          <th scope="row">{{ score.id }}</th>
+          <td scope="row">{{ score.establishment_id }}</td>
+          <td>{{ score.establishment_score }}</td>
+          <td>{{ score.establishment_nbvote }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <div id="score_content">
+    <div class="container d-flex justify-content-center align-items-center">
+    {# {{ dump(scores[0].establishment_score)}} #}
+    {% if scores is not empty %}
+    <div class="cardrating p-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="ratings">
+                <i class="{% if scores[0].establishment_score /5 == 0 %}fa fa-star{% elseif scores[0].establishment_score /5 > 0 and scores[0].establishment_score /5 < 0.2 %}fa fa-star-half-o rating-color{% else %}fa fa-star rating-color{% endif %}"></i>
+                <i class="{% if scores[0].establishment_score /5 < 0.2 %}fa fa-star{% elseif scores[0].establishment_score /5 > 0.2 and scores[0].establishment_score /5 < 0.4 %}fa fa-star-half-o rating-color{% else %}fa fa-star rating-color{% endif %}"></i>
+                <i class="{% if scores[0].establishment_score /5 < 0.4 %}fa fa-star{% elseif scores[0].establishment_score /5 >= 0.4 and scores[0].establishment_score /5 < 0.6 %}fa fa-star-half-o rating-color{% else %}fa fa-star rating-color{% endif %}"></i>
+                <i class="{% if scores[0].establishment_score /5 < 0.6 %}fa fa-star{% elseif scores[0].establishment_score /5 >= 0.6 and scores[0].establishment_score /5 < 0.8 %}fa fa-star-half-o rating-color{% else %}fa fa-star rating-color{% endif %}"></i>
+                <i class="{% if scores[0].establishment_score /5 < 1 %}fa fa-star{% elseif scores[0].establishment_score /5 >= 0.8 and scores[0].establishment_score /5 < 1 %}fa fa-star-half-o rating-color{% else %}fa fa-star rating-color{% endif %}"></i>
+               
+                {# <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star-half-o rating-color"></i> #}
+            </div>
+            <h5 class="review-count">with {{ scores[0].establishment_nbvote }} Reviews</h5>
+        </div>
+    </div>
+    {% endif %}
+
+   
+</div>
+    </div>
+  </div>
+  <div id="reviews_tab" class="tab-pane fade">
+    <h3>Reviews</h3>
+    <div id="reviews_content">
+    {% for review in reviews %}
+      <div class="container mt-5">
+
+          <div class="cardreviews text-center mb-5">
+
+              <div class="circle-image">
+                  <img src="{{ review.profile_photo_url }}" width="50">
+              </div>
+
+              <span class="dot"></span>
+
+              <span class="name mb-1 fw-500">{{ review.author_name }}</span>
+              {# <small class="text-black-50">Tata Ace</small>
+              <small class="text-black-50 font-weight-bold">QP09AA9090</small> #}
+
+              <div class="location mt-4">
+
+              <div>
+              <p class="review-text">{{ review.text }}</p>
+              </div>
+                  <span class="d-block"><i class="fa fa-star start"></i> <small class="text-truncate ml-2">{{ review.rating }}</small> </span>
+
+                  
+              </div>
+
+              <div class="rate bg-success py-3 text-white mt-3">
+                  <div class="rating"> 
+                    <div class="align-items-center">
+                      <div class="ratings">
+                          <i class="fa fa-star {% if review.rating  >= 1 %}rating-color{% endif %}"></i>
+                          <i class="fa fa-star {% if review.rating  >= 2 %}rating-color{% endif %}"></i>
+                          <i class="fa fa-star {% if review.rating  >= 3 %}rating-color{% endif %}"></i>
+                          <i class="fa fa-star {% if review.rating  >= 4 %}rating-color{% endif %}"></i>
+                          <i class="fa fa-star {% if review.rating  >= 5 %}rating-color{% endif %}"></i>
+                          
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block reviews %}
+  
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('../modules/mygooglereviews/views/js/setButton.js') }}"></script>
+{% endblock %}
+

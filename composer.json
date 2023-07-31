@@ -1,0 +1,22 @@
+{
+  "name": "ofostier/mygooglereviews",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "Olivier FOSTIER",
+      "email": "ofostier@gmail.com"
+    },
+    {
+        "name": "Trisula Core Team"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mygooglereviews\\": "src/"
+    },
+    "config": {
+      "prepend-autoloader": false
+    },
+    "type": "prestashop-module"
+  }
+}

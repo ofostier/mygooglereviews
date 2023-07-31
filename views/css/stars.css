@@ -1,0 +1,228 @@
+body{
+    background-color:#eef3f4;    
+    }
+    
+    .height-100{
+        height:100vh;
+    }
+
+    .tab-content{
+        overflow: hidden;
+    }
+    
+    .cardrating{
+        /* width:380px; */
+        border:none;
+        /* height:280px; */
+    }
+    
+    .ratings{
+        margin-right:10px;
+    }
+    
+    .ratings i{
+        
+        color:#cecece;
+        font-size:32px;
+    }
+    
+    .rating-color{
+        color:#fbc634 !important;
+    }
+    
+    .review-count{
+        font-weight:400;
+        margin-bottom:2px;
+        font-size:24px !important;
+    }
+    .review-text p{
+        font-weight:400;
+        margin-bottom:2px;
+        font-size:24px !important;
+    }
+    
+    .small-ratings i{
+      color:#cecece;   
+    }
+    
+    .review-stat{
+        font-weight:300;
+        font-size:18px;
+        margin-bottom:2px;
+    }
+
+    .circle-image img{
+
+        border: 6px solid #fff;
+        border-radius: 100%;
+        padding: 0px;
+        top: -28px;
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        z-index: 1;
+        background: #e7d184;
+        cursor: pointer;
+    
+    }
+    
+    .cardreviews{
+
+        width: 90%;
+        border: none;
+        box-shadow: 5px 6px 6px 2px #e9ecef;
+        border-radius: 12px;
+        float: left;
+        padding-right: 10px;
+    }
+    .reviews_content .container{
+
+        float: left;
+        display: block;
+        padding-right: 10px;
+    }
+    
+    .cardreviews .name{
+
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    .cardreviews .review-text{
+        font-weight:400;
+        font-size:14px;
+        margin-bottom:2px;
+        text-align: justify;
+        margin: 2em;
+    }
+
+
+    /* Container Global badge */
+.dbMfBV {
+    border-radius: 8px;
+}
+.hJdsRM {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 18px 24px 24px;
+    background-color: rgba(17, 17, 17, 0.05);
+}
+.cvBsnK, .cvBsnK * {
+    box-sizing: border-box !important;
+    outline: none !important;
+}
+
+/* bloc conatainer badge */
+.bivlqn {
+    margin-right: 24px;
+}
+
+.hlUNdy {
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: nowrap;
+    color: rgb(17, 17, 17);
+    font-size: 20px;
+}
+
+/* texte bagde droite de l'image */
+.gFWmoQ {
+    line-height: 1.8em;
+}
+
+/* container global bloc ratin dessous */
+.leXsJi {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+/* container bloc note et étoile */
+.gjjFta {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+/* note */
+.fdSgyg:first-child:not(:only-child) {
+    margin-right: 8px;
+}
+
+.fdSgyg {
+    font-weight: 700;
+    line-height: normal;
+    font-size: 20px;
+    color: rgb(17, 17, 17);
+    word-break: normal !important;
+}
+
+/* etoile */
+.ZsHQJ:not(:only-child) > :last-child {
+    margin-right: 12px;
+}
+.imVBGJ {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.iiVYYD {
+    margin-right: 8px;
+}
+.cNvbHF {
+    height: 36px;
+}
+/* ::::::::::::::::::::::::::::::::::: */
+.sk-ww-google-reviews * {
+    box-sizing: border-box;
+}
+.sk-ww-google-reviews .sk_reviews_badge {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+/* .sk-ww-google-reviews  */
+.sk_reviews_badge .sk_reviews_num_icon {
+    width: 100%;
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #EB6E00;
+    padding: 10px;
+}
+/* .sk-ww-google-reviews  */
+.sk_reviews_badge a {
+    text-decoration: none;
+    color: #333333;
+}
+.sk-google-reviews-badge-info {
+    display: block !important;
+    border: none !important;
+    padding: 10px !important;
+}
+
+.sk_reviews_grid-content {
+    cursor: default !important;
+    overflow: hidden;
+    text-align: left;
+    border-radius: 8px !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 3px 6px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.10);
+}
+.sk_fb_stars {
+    color: #5b93fc;
+    margin-right: 8px;
+}
+.sk-google-place-name {
+    padding: 0;
+    font-weight: bold;
+}

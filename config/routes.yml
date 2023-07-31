@@ -1,0 +1,53 @@
+# @see https://devdocs.prestashop-project.org/1.7/modules/concepts/controllers/admin-controllers/#how-to-map-an-action-of-your-controller-to-a-uri
+# ps_controller_tabs_configure:
+#     path: /configure-tabs
+#     methods: [GET]
+#     defaults:
+#         _controller: 'PrestaShop\Module\DemoControllerTabs\Controller\Admin\ConfigureController::indexAction'
+#         _legacy_controller: 'AdminDemoControllerTabsConfigure'
+#         _legacy_link: 'AdminDemoControllerTabsConfigure'
+
+# ps_controller_tabs_minimalist:
+#     path: /configure-tabs/minimalist
+#     methods: [GET]
+#     defaults:
+#         _controller: 'PrestaShop\Module\DemoControllerTabs\Controller\Admin\MinimalistController::indexAction'
+
+# ps_controller_tabs_secured:
+#     path: /configure-tabs/secured
+#     methods: [GET]
+#     defaults:
+#         _controller: 'PrestaShop\Module\DemoControllerTabs\Controller\Admin\SecuredController::indexAction'
+#         _legacy_controller: 'AdminDemoControllerTabsSecured'
+
+ps_controller_tabs_manual_tab:
+    path: /configure-tabs/manual_tab
+    methods: [GET]
+    defaults:
+        _controller: 'Mygooglereviews\Controller\Admin\ManualTabController::indexAction'
+
+ps_controller_tabs_demo:
+    path: /configure-tabs/demo
+    methods: [GET]
+    defaults:
+        _controller: 'Mygooglereviews\Controller\Admin\DemoController::demoAction'
+
+ps_controller_tabs_set:
+    path: /configure-tabs/set
+    methods: [POST, GET]
+    defaults:
+        _controller: 'Mygooglereviews\Controller\Admin\SetGoogleReviewsController::indexAction'
+
+ps_controller_ajax_get:
+    path: /configure-tabs/ajaxgetplaceid
+    methods: [POST]
+    defaults:
+        _controller: 'Mygooglereviews\Controller\Admin\SetGoogleReviewsController::ajaxgetplaceidAction'
+        _legacy_controller: 'ps_controller_ajax_get'
+
+ps_controller_ajax_getreviews:
+    path: /configure-tabs/ajaxgetreviews
+    methods: [POST]
+    defaults:
+        _controller: 'Mygooglereviews\Controller\Admin\SetGoogleReviewsController::ajaxgetreviewsAction'
+        _legacy_controller: 'ps_controller_ajax_getreviews'

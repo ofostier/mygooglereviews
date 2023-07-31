@@ -1,0 +1,67 @@
+{#**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0).
+ * It is also available through the world-wide-web at this URL: https://opensource.org/licenses/AFL-3.0
+ *#}
+
+{% extends '@Modules/mygooglereviews/views/templates/admin/layout.html.twig' %}
+
+{% block controllerTitle %}{{ 'Set My Google Reviews'|trans({}, 'Modules.Controllertab.Admin') }}{% endblock %}
+{% form_theme form 'PrestaShopBundle:Admin/TwigTemplateForm:prestashop_ui_kit.html.twig' %}
+{% block controllerDescription %}
+    <div class="row justify-content-center">
+        <div class="col">
+            <h2>Retrieve your establishment ID from Google</h2>
+             <div>
+                {{ form_start(form) }}
+                {{ form_end(form) }}
+            </div>
+            <div id='error_mess'></div>
+            <h3>Routing file</h3>
+            <p>
+                We define a route that uses the <code>ConfigureController</code>, it defines a <code>_legacy_controller</code> parameter that will be used for Security, and a <code>_legacy_link</code> parameter that is used to help generate the url with the <code>Link</code> legacy core class.
+            </p>
+
+            <h3>Secured Controller</h3>
+            <p>
+                We use the <code>PrestaShopBundle\Security\Annotation\AdminSecurity</code> annotation to secure the controller, it will use the permissions associated to the configured <code>_legacy_controller</code> (which is defined as <code>AdminDemoControllerTabsConfigure</code> in the routing file).
+            </p>
+
+            <h3>Automatic Tabs registration</h3>
+
+            <h3>Redirection for module configuration</h3>
+            
+        </div>
+       
+    </div>
+
+{{ form_start(form) }}
+  <div class="card">
+    <h3 class="card-header">
+      <i class="material-icons">settings</i> {{ 'Types'|trans({}, 'Modules.DemoForms.Admin') }}
+    </h3>
+    <div class="card-block row">
+      <div class="card-text">
+        {{ form_widget(form) }}
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary float-right" id="save-button">
+          {{ 'Save'|trans({}, 'Admin.Actions') }}
+        </button>
+      </div>
+    </div>
+  </div>
+  {{ form_end(form) }}
+    
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('../modules/mygooglereviews/views/js/setButton.js') }}"></script>
+{% endblock %}
+
