@@ -242,7 +242,7 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
 
         //return new Response(json_encode($_POST));
         
-        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN;
+        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN; //'AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o';
     
         $places = array();
     
