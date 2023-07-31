@@ -82,14 +82,16 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
             Tools::redirectAdmin(Context::getContext()->link->getAdminLink('AdminModules').'&configure=mygooglereviews');
         }
 
-        $link_get_placeid = 'toto';// $this->getAdminLink('ps_controller_ajax_get', array('route' => 'ps_controller_ajax_get'));
-        $link_refresh_reviews = Context::getContext()->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
+        // $link_get_placeid = $this->getAdminLink('ps_controller_ajax_get', array('route' => 'ps_controller_ajax_get'));
+        // $link_refresh_reviews = Context::getContext()->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
         //$this->getAdminLink('ps_controller_ajax_getreviews');//, array('route' => 'ps_controller_ajax_get', 'action' => 'index'));
         //echo $link_refresh_reviews;
         //Add const def to JS (global page)
-        Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
-        
+    //     Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
+    //     echo ">>>>>>" . $link_get_placeid;
+    //     echo ">>>>>>" . $link_refresh_reviews;
     }
+
     public function getEM(EntityManagerInterface $entityManager)
     {
         // 3. Update the value of the private entityManager variable through injection
@@ -235,12 +237,12 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         return $helper->generateForm($form);
     }
     
-    public function ajaxgetplaceidAction($query="krysakids, mallemort") {
+    public function ajaxgetplaceidAction() {
         //var_dump("AJAX GET ACTION");
 
         //return new Response(json_encode($_POST));
         
-        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN; //'AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o';
+        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN;
     
         $places = array();
     
@@ -248,17 +250,14 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $params  = array(
             "query" => $_POST['establishment_address'],
             "key"   => $_POST['token_api'],
+            "language" => "fr²"
         );
     
         $request .= http_build_query($params);
     
         $json = file_get_contents($request);
-        
+
         return new Response(json_encode($json));
-
-
-        exit("AJAX GET ACTION");
-
 
     }
 
