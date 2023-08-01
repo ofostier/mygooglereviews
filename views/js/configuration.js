@@ -42,38 +42,45 @@
       var address_search = $('#MYGGOGLEREVIEWS_ADDRESS').val();
       var token_api = $('#MYGGOGLEREVIEWS_GOOGLE_TOKEN').val();
       var ajaxurl = $('#MYGGOGLEREVIEWS_AJAX_ROUTE').val();
+      //var gtoken = $('#gtoken').val();
 
-      $('#refresh_placeid').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp Loading...');
-      if (address_search.length > 0) {
+      if (address_search.length > 0 && token_api.length > 0) {
 
-          $.ajax({
-              type: "POST",
-              url: ajaxurl,
-              data: {'establishment_address' : address_search, 'token_api' : token_api},
-              dataType: "json",
-          })
-          .done(
-            function (response) { 
-            
-                data =jQuery.parseJSON(response);
-                //console.log(data);
-                //alert(data)
-                res = data['results'][0]['place_id'];
-                $('#MYGGOGLEREVIEWS_GOOGLE_PLACEID').val(res);
-                $('#refresh_placeid').html('Get Place ID');
+        $('#refresh_placeid').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp Loading...');
 
-                btclass = $('#module_form_submit_btn').attr('class');
-                if (res!=''){
-                    $('#module_form_submit_btn').attr('class', btclass.replace('disabled',''));
-                    alert("Great! You can now register.");
-                }
-             }
-          )
-          .fail(function (jqXHR, textStatus, errorThrown) { 
-            $('#error_mess').append(jqXHR);
-            $('#error_mess').append(textStatus);
-            $('#error_mess').append(errorThrown);
+        $.ajax({
+            type: "POST",
+            url: ajaxurl,
+            data: JSON.stringify({'establishment_address' : address_search, 'token_api' : token_api}),
+            dataType: "json",
+            contentType: "application/json",
+        })
+        .done(
+          function (response) { 
+              data =jQuery.parseJSON(response);
+              res = data['results'][0]['place_id'];
+              $('#MYGGOGLEREVIEWS_GOOGLE_PLACEID').val(res);
+              $('#refresh_placeid').html('Get Place ID');
+
+              btclass = $('#module_form_submit_btn').attr('class');
+              if (res!=''){
+                  $('#module_form_submit_btn').attr('class', btclass.replace('disabled',''));
+                  alert("Great! You can now register your configuration.");
+              }
+            }
+        )
+        .fail(function (jqXHR, textStatus, errorThrown) { 
+
+          var acc = [];
+          $.each(jqXHR, function (index, value) {
+            acc.push(index +" : " + value);
           });
+          console.log(JSON.stringify(acc) + textStatus + errorThrown);
+          $('#error_mess').append(jqXHR);
+          $('#error_mess').append(textStatus);
+          $('#error_mess').append(errorThrown);
+        });
+
       } else {
           $('#result').html('');        
       }

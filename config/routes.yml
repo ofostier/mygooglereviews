@@ -40,7 +40,7 @@ ps_controller_tabs_set:
 
 ps_controller_ajax_get:
     path: /configure-tabs/ajaxgetplaceid
-    methods: [POST]
+    methods: [POST, GET]
     defaults:
         _controller: 'Mygooglereviews\Controller\Admin\SetGoogleReviewsController::ajaxgetplaceidAction'
         _legacy_controller: 'ps_controller_ajax_get'

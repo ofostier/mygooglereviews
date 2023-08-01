@@ -29,6 +29,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 //use PrestaShop\Module\MyGoogleReviews\Controller\Admin\ConfigureController;
 use Mygooglereviews\Controller\Admin\ManualTabController;
 use Mygooglereviews\Controller\Admin\SetGoogleReviewsController;
+use Prestashop\PrestaShop\Adapter\SymfonyContainer;
+
 //use PrestaShop\Module\DemoControllerTabs\Controller\Admin\ConfigureController;
 
 class mygooglereviews extends Module
@@ -277,8 +279,7 @@ class mygooglereviews extends Module
      */
     public function displayForm($placeid='')
     {
-        echo $placeid;
-
+        
         $classdisable = ($placeid == '') ? 'btn btn-danger btn-lg pull-right disabled' : 'btn btn-danger btn-lg pull-right';
         // Init Fields form array
         $form = [
@@ -315,13 +316,22 @@ class mygooglereviews extends Module
                         ]
                     ],
                     [
-                        'type' => 'text',
+                        'type' => 'hidden',
                         'label' => $this->l('test'),
                         'name' => 'MYGGOGLEREVIEWS_AJAX_ROUTE',
                         'size' => 255,
                         'required' => true,
                         //'value' => $this->context->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'))
                     ],
+                    
+                    // [
+                    //     'type' => 'text',
+                    //     'label' => $this->l('token'),
+                    //     'name' => 'gtoken',
+                    //     'size' => 255,
+                    //     'required' => true,
+                    //     //'value' => $this->context->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'))
+                    // ],
                 ],
                 
                 'buttons' => [
@@ -358,7 +368,8 @@ class mygooglereviews extends Module
         $helper->currentIndex = AdminController::$currentIndex . '&' . http_build_query(['configure' => $this->name]);
         $helper->submit_action = 'submit' . $this->name;
         
-       
+      // $router = SymphonyContainer::getInstance()->get('router');
+       $urltoken = "http://krysak" . $this->context->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get')); //$router->generate('ps_controller_ajax_get'); //
 
         // Default language
         $helper->default_form_language = (int) Configuration::get('PS_LANG_DEFAULT');
@@ -368,7 +379,8 @@ class mygooglereviews extends Module
         $helper->fields_value['MYGGOGLEREVIEWS_ADDRESS'] = Tools::getValue('MYGGOGLEREVIEWS_ADDRESS', Configuration::get('MYGGOGLEREVIEWS_ADDRESS'));
         $helper->fields_value['MYGGOGLEREVIEWS_GOOGLE_TOKEN'] = Tools::getValue('MYGGOGLEREVIEWS_GOOGLE_TOKEN', Configuration::get('MYGGOGLEREVIEWS_GOOGLE_TOKEN'));
         $helper->fields_value['MYGGOGLEREVIEWS_GOOGLE_PLACEID'] = Tools::getValue('MYGGOGLEREVIEWS_GOOGLE_PLACEID', Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
-
+        //$helper->fields_value['gtoken'] = $urltoken; //*Tools::getAdminTokenLite('SetGoogleReviewsController');; //Tools::getAdminTokenLite('AdminModules');
+         
         return $helper->generateForm([$form]);
     }
 

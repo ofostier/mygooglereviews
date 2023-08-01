@@ -77,9 +77,13 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID = Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID');
         $this->MYGGOGLEREVIEWS_ADDRESS = Configuration::get('MYGGOGLEREVIEWS_ADDRESS');
 
-        if (empty($this->MYGGOGLEREVIEWS_GOOGLE_TOKEN) || empty($this->MYGGOGLEREVIEWS_ADDRESS) || empty($this->MYGGOGLEREVIEWS_GOOGLE_PLACEID)) {
+        if (!str_contains($_SERVER["REQUEST_URI"], "ajaxgetplaceid")){
 
-            Tools::redirectAdmin(Context::getContext()->link->getAdminLink('AdminModules').'&configure=mygooglereviews');
+            if (empty($this->MYGGOGLEREVIEWS_GOOGLE_TOKEN) || empty($this->MYGGOGLEREVIEWS_ADDRESS) || empty($this->MYGGOGLEREVIEWS_GOOGLE_PLACEID)) {
+
+                Tools::redirectAdmin(Context::getContext()->link->getAdminLink('AdminModules').'&configure=mygooglereviews');
+
+            }
         }
 
         // $link_get_placeid = $this->getAdminLink('ps_controller_ajax_get', array('route' => 'ps_controller_ajax_get'));
@@ -90,15 +94,6 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
     //     Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
     //     echo ">>>>>>" . $link_get_placeid;
     //     echo ">>>>>>" . $link_refresh_reviews;
-    }
-
-    public function getEM(EntityManagerInterface $entityManager)
-    {
-        // 3. Update the value of the private entityManager variable through injection
-        $this->entityManager = $entityManager;
-
-        //parent::__construct();
-        return $entityManager;
     }
 
     /**
@@ -248,9 +243,9 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
     
         $request = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
         $params  = array(
-            "query" => $_POST['establishment_address'],
-            "key"   => $_POST['token_api'],
-            "language" => "fr²"
+            "query" => "krysakids, mallemort", //$_POST['establishment_address'],
+            "key"   => "AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o", //$_POST['token_api'],
+            "language" => "fr"
         );
     
         $request .= http_build_query($params);
