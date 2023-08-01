@@ -71,7 +71,7 @@ class mygooglereviews extends Module
         // Db action first
         return 
         $this->dbInstall() 
-        && $this->manuallyInstallTab()
+        //&& $this->manuallyInstallTab()
         && $this->manuallyInstallTabSet()
         && parent::install();
         //&& Configuration::updateValue('MYBASICMODULE_NAME', 'My basic module name');
@@ -131,7 +131,7 @@ class mygooglereviews extends Module
         $tab->route_name = 'ps_controller_tabs_set';
         $tab->name = [];
         foreach (Language::getLanguages() as $lang) {
-            $tab->name[$lang['id_lang']] = $this->trans('Set My Google Reviews', [], 'Modules.Mygooglesreviews.Admin', $lang['locale']);
+            $tab->name[$lang['id_lang']] = $this->trans('My Google Reviews', [], 'Modules.Mygooglesreviews.Admin', $lang['locale']);
         }
         $tab->icon = 'build';
         $tab->id_parent = (int) Tab::getIdFromClassName('IMPROVE');

@@ -76,9 +76,9 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN = Configuration::get('MYGGOGLEREVIEWS_GOOGLE_TOKEN');
         $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID = Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID');
         $this->MYGGOGLEREVIEWS_ADDRESS = Configuration::get('MYGGOGLEREVIEWS_ADDRESS');
-
+        
         if (!str_contains($_SERVER["REQUEST_URI"], "ajaxgetplaceid")){
-
+            
             if (empty($this->MYGGOGLEREVIEWS_GOOGLE_TOKEN) || empty($this->MYGGOGLEREVIEWS_ADDRESS) || empty($this->MYGGOGLEREVIEWS_GOOGLE_PLACEID)) {
 
                 Tools::redirectAdmin(Context::getContext()->link->getAdminLink('AdminModules').'&configure=mygooglereviews');
@@ -200,10 +200,6 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         //return $this->render('@Modules/mygooglereviews/views/templates/admin/index.html.twig');
     }
 
-    public function initFirstRow(){
-
-    }
-
     public function esForm() 
     {
         $helper = new HelperForm();
@@ -235,6 +231,7 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
     public function ajaxgetplaceidAction() {
         //var_dump("AJAX GET ACTION");
 
+                
         //return new Response(json_encode($_POST));
         
         $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN; //'AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o';
@@ -257,7 +254,8 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
     }
 
     public function ajaxgetreviewsAction($query="") {
-        
+
+                
         $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN;
     
         $reviews = array();
