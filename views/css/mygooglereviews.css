@@ -1,0 +1,134 @@
+
+.mglayoutscore {
+    display: grid;
+    grid-template-columns: minmax(0px, 1fr);
+}
+
+.mgheaderscore {
+    /* margin-right: 24px; */
+    border-radius: 8px;
+
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 18px 24px 24px;
+    background-color: rgba(17, 17, 17, 0.05);
+}
+
+.mgiconcontainer {
+    margin-right: 8px;
+}
+.mgiconcontainer img, .mgiconcontainer svg {
+    display: block;
+    object-fit: contain;
+    height: 36px;
+}
+
+.mgheardertitle {
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: nowrap;
+    color: rgb(17, 17, 17);
+    font-size: 20px;
+}
+.mgtitleeval {
+    color: rgb(17, 17, 17);
+}
+.footer-container .mgtitleeval {
+    color: rgba(253, 253, 253, 0.993);
+}
+.mgscore:first-child:not(:only-child) {
+    margin-right: 8px;
+
+}
+.mgscore{
+    font-weight: 700;
+    line-height: normal;
+    font-size: 20px;
+    color: rgb(17, 17, 17);
+    word-break: normal !important;
+}
+.footer-container .mgscore {
+    color: rgba(253, 253, 253, 0.993);
+}
+.mgscoreinfo {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.mgratingcontainer {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+}
+.mgheadertotalreviews {
+    overflow: hidden;
+    font-weight: 400;
+    line-height: 2.5;
+    align-self: flex-end;
+    font-size: 12px;
+    color: rgba(17, 17, 17, 0.5);
+}
+.footer-container .mgheadertotalreviews {
+    color: rgba(253, 253, 253, 0.993);
+}
+.mgreviewsvalue {
+    display: inline;
+    margin-right: 1px;
+}
+.mgreviewstext{
+    display: inline;
+}
+
+.ratings {
+    margin-right: 12px;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    color: #b1b1b1;
+    overflow: hidden;
+  }
+  
+  .full-stars{
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fde16d;
+  }
+  
+  .empty-stars:before,
+  .full-stars:before {
+    content: "\2605\2605\2605\2605\2605";
+    font-size: 14pt;
+  }
+  
+  .empty-stars:before {
+    -webkit-text-stroke: 1px #848484;
+  }
+  
+  .full-stars:before {
+    -webkit-text-stroke: 1px orange;
+  }
+  
+  /* Webkit-text-stroke is not supported on firefox or IE */
+  /* Firefox */
+  @-moz-document url-prefix() {
+    .full-stars{
+      color: #ECBE24;
+    }
+  }
+  /* IE */
+  <!--[if IE]>
+    .full-stars{
+      color: #ECBE24;
+    }
+  <![endif]-->
