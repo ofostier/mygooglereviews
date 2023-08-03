@@ -27,15 +27,20 @@ if (!defined('_PS_VERSION_')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 //use PrestaShop\Module\MyGoogleReviews\Controller\Admin\ConfigureController;
-use Mygooglereviews\Controller\Admin\ManualTabController;
+//use Mygooglereviews\Controller\Admin\ManualTabController;
+
+use Doctrine\ORM\Query\Expr\Func;
 use Mygooglereviews\Controller\Admin\SetGoogleReviewsController;
+use Mygooglereviews\Controller\Admin\MyTestController;
 use Prestashop\PrestaShop\Adapter\SymfonyContainer;
+use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
 //use PrestaShop\Module\DemoControllerTabs\Controller\Admin\ConfigureController;
 
-class mygooglereviews extends Module
+class mygooglereviews extends Module implements WidgetInterface
 {
-    //const TAB_CLASS_OFO = 'AdminMygooglereviewsSetGoogleReviews';
+
+    private $templateFile;
 
     public function __construct()
     {
@@ -60,6 +65,8 @@ class mygooglereviews extends Module
         // if (!Configuration::get('MYBASICMODULE_NAME')) {
         //     $this->warning = $this->l('No name provided');
         // }
+
+        $this->templateFile = 'module:mygooglereviews/score.tpl';
     }
 
     public function install()
@@ -71,48 +78,26 @@ class mygooglereviews extends Module
         // Db action first
         return 
         $this->dbInstall() 
-        && $this->manuallyInstallTab()
+        && parent::install()
         && $this->manuallyInstallTabSet()
-        && parent::install();
+        //&& $this->manuallyInstallTabReviews()
+        && $this->registerHook('actionFrontControllerSetMedia')
+        && $this->registerHook('header')
+        //&& $this->registerHook('displayFooter')
+        ;
         //&& Configuration::updateValue('MYBASICMODULE_NAME', 'My basic module name');
     }
     public function uninstall()
     {
 
-        return parent::uninstall()
-        //&& $this->unregisterHook('backOfficeHeader')
-        && $this->dbUninstall()
-        && $this->manuallyuninstallTab()
-        && $this->manuallyuninstallTabSet();
+        return 
+        $this->dbUninstall()
+        && $this->manuallyuninstallTabSet()
+        //&& $this->manuallyuninstallTabReviews()
+        && parent::uninstall();
     }
 
-    /**
-     * @return bool
-     */
-    private function manuallyInstallTab(): bool
-    {
-        // Add Tab for ManualTabController
-        $controllerClassName = ManualTabController::TAB_CLASS_NAME;
-        $tabId = (int) Tab::getIdFromClassName($controllerClassName);
-        if (!$tabId) {
-            $tabId = null;
-        }
 
-        $tab = new Tab($tabId);
-        $tab->active = 1;
-        $tab->class_name = $controllerClassName;
-        $tab->route_name = 'ps_controller_tabs_manual_tab';
-        $tab->name = [];
-        foreach (Language::getLanguages() as $lang) {
-            $tab->name[$lang['id_lang']] = $this->trans('My Google Reviews', [], 'Modules.Mygooglesreviews.Admin', $lang['locale']);
-        }
-        $tab->icon = 'build';
-        $tab->id_parent = (int) Tab::getIdFromClassName('IMPROVE');
-        $tab->module = $this->name;
-        
-
-        return (bool) $tab->save();
-    }
     /**
      * @return bool
      */
@@ -131,7 +116,7 @@ class mygooglereviews extends Module
         $tab->route_name = 'ps_controller_tabs_set';
         $tab->name = [];
         foreach (Language::getLanguages() as $lang) {
-            $tab->name[$lang['id_lang']] = $this->trans('Set My Google Reviews', [], 'Modules.Mygooglesreviews.Admin', $lang['locale']);
+            $tab->name[$lang['id_lang']] = $this->trans('My Google Reviews', [], 'Modules.Mygooglesreviews.Admin', $lang['locale']);
         }
         $tab->icon = 'build';
         $tab->id_parent = (int) Tab::getIdFromClassName('IMPROVE');
@@ -162,6 +147,24 @@ class mygooglereviews extends Module
     public function manuallyuninstallTabSet(){
 
         $controllerClassName = SetGoogleReviewsController::TAB_CLASS_NAME;
+        $tabId = (int) Tab::getIdFromClassName($controllerClassName);
+        // $tabId = (int)Tab::getIdFromClassName('AdminMyGoogleReviews');
+        
+        if($tabId) {
+            $tab = new Tab($tabId);
+            try {
+                $tab->delete();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function manuallyuninstallTabReviews(){
+
+        $controllerClassName = MyTestController::TAB_CLASS_NAME;
         $tabId = (int) Tab::getIdFromClassName($controllerClassName);
         // $tabId = (int)Tab::getIdFromClassName('AdminMyGoogleReviews');
         
@@ -382,6 +385,93 @@ class mygooglereviews extends Module
         //$helper->fields_value['gtoken'] = $urltoken; //*Tools::getAdminTokenLite('SetGoogleReviewsController');; //Tools::getAdminTokenLite('AdminModules');
          
         return $helper->generateForm([$form]);
+    }
+
+
+    public function renderWidget($hookName = null, array $configuration = [])
+    {
+
+        $templateFile = 'module:'.$this->name.'/views/templates/widget/score.tpl';
+        //$templateFile = $this->templateFile;
+
+        if (!$this->isCached($templateFile, $this->getCacheId('mygooglereviews'))) {
+            $this->smarty->assign($this->getWidgetVariables($hookName, $configuration));
+        }
+
+        return $this->fetch($templateFile, $this->getCacheId('mygooglereviews'));
+    }
+
+    public function getWidgetVariables($hookName , array $configuration)
+    {
+        //$myParamKey = $configuration['my_param_key'] ?? "null";
+        
+        return [
+            'score' => number_format((float)5,1),
+            'scorepercent' => 100*(5/5),
+            'nbrating' => '77',
+            'css' => $this->_path .'views/css/mygooglereviews_score.css',
+            'css2' => '/modules/' . $this->name . '/views/css/mygooglereviews_score.css'
+            //'my_dynamic_var_by_param' => $this->getMyDynamicVarByParamKey($myParamKey),
+        ];
+    }
+    
+    public function getMyDynamicVarByParamKey(string $paramKey)
+    {
+        if($paramKey === 'my_param_value') {
+           return 'my_dynamic_var_by_my_param_value';
+        }
+
+        return null;
+    }
+
+    /**
+     * Assign smarty variables and display the hook
+     *
+     * @param string $template
+     *
+     * @return string
+     *
+     * @throws PrestaShopDatabaseException
+     */
+    private function renderTemplateInHook($template)
+    {
+        $id_lang = $this->context->language->id;
+
+        $this->smarty->assign($this->getWidgetVariables($hookName, $configuration));
+
+        return $this->display(__FILE__, 'views/templates/hook/score.tpl'); // . $template);
+    }
+
+    public function hookActionFrontControllerSetMedia()
+    {
+        //https://devdocs.prestashop-project.org/8/themes/getting-started/asset-management/
+        $this->context->controller->registerStylesheet(
+            'mygooglereviews-style',
+            'modules/' . $this->name . '/views/css/mygooglereviews.css',
+            [
+                'media' => 'all',
+                'priority' => 1000,
+            ]
+        );
+
+        // $this->context->controller->registerJavascript(
+        //     'mymodule-javascript',
+        //     'modules/' . $this->name . '/views/js/mygooglereviews.js',
+        //     [
+        //         'position' => 'bottom',
+        //         'priority' => 1000,
+        //     ]
+        // );
+    }
+
+    public function hookHeader() {
+
+        //$this->context->controller->addCSS($this->_path .'views/css/ps_mygooglereviews_score.css');
+
+        $this->context->controller->registerStylesheet(
+            'mygooglereviews_score',
+            '/modules/' . $this->name . '/views/css/mygooglereviews_score.css'
+        );
     }
 
 }
