@@ -38,7 +38,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
-use Mygooglereviews\Entity\Mygooglereviews;
+//use Mygooglereviews\Entity\Mygooglereviews;
 use Mygooglereviews\Entity\Mygooglereviewsreviews;
 use Mygooglereviews\Entity\Mygooglereviewsscore;
 use Mygooglereviews\Form\EstablishmentType;
@@ -76,15 +76,10 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
             }
         }
 
-        //$link_get_placeid = $this->getAdminLink('ps_controller_ajax_get', array('route' => 'ps_controller_ajax_get'));
         $link_get_placeid = Context::getContext()->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'));
         $link_refresh_reviews = Context::getContext()->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
-        //$this->getAdminLink('ps_controller_ajax_getreviews');//, array('route' => 'ps_controller_ajax_get', 'action' => 'index'));
-        //echo $link_refresh_reviews;
-        //Add const def to JS (global page)
+        
          Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
-    //     echo ">>>>>>" . $link_get_placeid;
-    //     echo ">>>>>>" . $link_refresh_reviews;
     }
 
     /**
@@ -94,11 +89,8 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
      */
     public function indexAction(Request $request)
     {
-        //return $this->render('@Modules/mygooglereviews/views/templates/admin/manual_tab.html.twig');
-        //return $this->render('@Modules/mygoog/templates/admin/demo.html.twig');
         $data = "";
         $form = $this->createForm(EstablishmentType::class);
-        //$form = $this->createForm($this->buildForm());
 
         $form->handleRequest($request);
 
@@ -156,20 +148,16 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $scores = $em->getRepository(Mygooglereviewsscore::class)->findBy(array('establishment_id' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID));
        
         $reviews = $em->getRepository(Mygooglereviewsreviews::class)->findBy(array('placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID));
-        //var_dump($reviews);
-        //$data = $em->getRepository(Mygooglereviews::class)->find(1);
+
         $data = (object) array('id' => "x", 'address' => $this->MYGGOGLEREVIEWS_ADDRESS, 'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID );
 
         $form = $this->createForm(EstablishmentType::class, $data);
 
-        $shop = $this->getContext()->shop->id; //$this->getAdminLink();
+        $shop = $this->getContext()->shop->id; 
         $base_url = $this->getContext()->link->getBaseLink();
-        //var_dump($data);
-        //exit();
 
         $value = Tools::getValue('MYGGOGLEREVIEWS_ADDRESS');
         $value2 = Configuration::get('MYGGOGLEREVIEWS_ADDRESS');
-        //var_dump($value);
 
         return $this->render(
             // "@Modules/mybasicmodule/views/templates/admin/comment.html.twig",
@@ -186,9 +174,6 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
                 //"form2" => $this->esForm(),
             ]
         );
-
-        //return $this->render('@Modules/mygooglereviews/views/templates/admin/set.html.twig');
-        //return $this->render('@Modules/mygooglereviews/views/templates/admin/index.html.twig');
     }
 
     public function esForm() 
@@ -220,19 +205,16 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
     }
     
     public function ajaxgetplaceidAction() {
-        //var_dump("AJAX GET ACTION");
-
-                
         //return new Response(json_encode($_POST));
         
-        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN; //'AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o';
+        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN;
     
         $places = array();
     
         $request = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
         $params  = array(
-            "query" => "krysakids, mallemort", //$_POST['establishment_address'],
-            "key"   => "AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o", //$_POST['token_api'],
+            "query" => $_POST['establishment_address'],
+            "key"   => $_POST['token_api'],
             "language" => "fr"
         );
     
@@ -261,22 +243,14 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $request .= http_build_query($params);
     
         $json = file_get_contents($request);
-        //echo json_encode($json);
-        //exit();
         $data = json_decode($json, true);
-        //$data = json_decode($json);
         
         $result = json_decode(json_encode ( $json ) , true);
 
         $sql = $this->sqlInsertScore($_POST['placeid'], $data['result']['rating'], $data['result']['user_ratings_total']);
-        // return new Response(json_encode(
-        //     [
-        //         "result" => ["sql"=>$sql]
-        //     ]
-        // ));
 
         $this->reviews =  $data['result']['reviews'];
-        $sql2 = $this->sqlInsertReviews($_POST['placeid'], $data['result']['reviews']); //$_POST['placeid'], $data['result']['reviews']);
+        $sql2 = $this->sqlInsertReviews($_POST['placeid'], $data['result']['reviews']);
 
         return new Response(json_encode(
             [
@@ -308,11 +282,8 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
 
     }
 
-    //public function sqlInsertReviews($placeid=0, $reviews=[]) {
     public function sqlInsertReviews($placeid = "placeiiiiid", $reviews) {
 
-
-        //$emd = $this->container->get('doctrine.orm.entity_manager');
         $em = $this->container->get('doctrine.orm.entity_manager');
 
         $query = $em->createQuery(
@@ -342,14 +313,11 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
             $mygooglereviewsreviews->setTranslated($review['translated']);
 
             $em->persist($mygooglereviewsreviews);
-            sleep(1);
-            
-            
         }
         
         $em->flush();
 
-        return $cnt; //$review['profile_photo_url'];
+        return $cnt; 
 
     }
 }

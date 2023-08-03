@@ -32,7 +32,7 @@ $(() => {
               rating = data['result']['rating'];
               reviews = data['result']['reviews'];
 
-              //location.reload(true);
+              location.reload(true);
 
               // res = $data['results'][0]['place_id'];
               // $('#establishment_placeid').val(res);
@@ -49,6 +49,7 @@ $(() => {
             $('#error_mess').append(textStatus);
             $('#error_mess').append(errorThrown);
             $('#refresh_reviews').html('Refresh');
+            
             //location.reload(true);
           });
       } else {

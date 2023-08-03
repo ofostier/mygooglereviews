@@ -26,16 +26,11 @@ if (!defined('_PS_VERSION_')) {
 // Needed for install process
 require_once __DIR__ . '/vendor/autoload.php';
 
-//use PrestaShop\Module\MyGoogleReviews\Controller\Admin\ConfigureController;
-//use Mygooglereviews\Controller\Admin\ManualTabController;
-
 use Doctrine\ORM\Query\Expr\Func;
 use Mygooglereviews\Controller\Admin\SetGoogleReviewsController;
 use Mygooglereviews\Controller\Admin\MyTestController;
 use Prestashop\PrestaShop\Adapter\SymfonyContainer;
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
-
-//use PrestaShop\Module\DemoControllerTabs\Controller\Admin\ConfigureController;
 
 class mygooglereviews extends Module implements WidgetInterface
 {
@@ -130,7 +125,6 @@ class mygooglereviews extends Module implements WidgetInterface
 
         $controllerClassName = ManualTabController::TAB_CLASS_NAME;
         $tabId = (int) Tab::getIdFromClassName($controllerClassName);
-        // $tabId = (int)Tab::getIdFromClassName('AdminMyGoogleReviews');
         
         if($tabId) {
             $tab = new Tab($tabId);
@@ -148,25 +142,6 @@ class mygooglereviews extends Module implements WidgetInterface
 
         $controllerClassName = SetGoogleReviewsController::TAB_CLASS_NAME;
         $tabId = (int) Tab::getIdFromClassName($controllerClassName);
-        // $tabId = (int)Tab::getIdFromClassName('AdminMyGoogleReviews');
-        
-        if($tabId) {
-            $tab = new Tab($tabId);
-            try {
-                $tab->delete();
-            } catch (Exception $e) {
-                echo $e->getMessage();
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public function manuallyuninstallTabReviews(){
-
-        $controllerClassName = MyTestController::TAB_CLASS_NAME;
-        $tabId = (int) Tab::getIdFromClassName($controllerClassName);
-        // $tabId = (int)Tab::getIdFromClassName('AdminMyGoogleReviews');
         
         if($tabId) {
             $tab = new Tab($tabId);

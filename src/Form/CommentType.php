@@ -1,10 +1,8 @@
 <?php
 
-// namespace Mygooglereviews\Form;
-//namespace PrestaShop\Module\MyGoogleReviews\Controller\Form;
 declare(strict_types=1);
 
-namespace PrestaShop\Module\MyGoogleReviews\Form;
+namespace PrestaShop\Module\Mygooglereviews\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
