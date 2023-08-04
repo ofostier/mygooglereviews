@@ -1,6 +1,5 @@
 <?php
 
-//namespace MyGoogleReviews\Entity;
 namespace Mygooglereviews\Entity;
 
 use Doctrine\ORM\Mapping as ORM;

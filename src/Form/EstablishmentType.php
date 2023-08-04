@@ -1,7 +1,5 @@
 <?php
 
-// namespace Mygooglereviews\Form;
-//namespace PrestaShop\Module\MyGoogleReviews\Controller\Form;
 declare(strict_types=1);
 
 namespace Mygooglereviews\Form;

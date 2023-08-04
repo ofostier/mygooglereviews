@@ -18,24 +18,6 @@
       return results[1] || 0;
     }
 
-    function getPlaceidxxx() {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: 'ajax-tab.php',
-            data: {
-                ajax: true,
-                controller: 'AdminFooBar',
-                action: 'youraction', // small letter case
-                var1: your_variable, // if you want to send some var
-                token: $('#your_DOM_identifier').attr('data-token'), // your token previously set in your DOM element
-            },
-        })
-        .done(function (data) {
-
-        })    
-    }   
-
     function getPlaceid(){
 
       var res = '';
@@ -48,38 +30,74 @@
 
         $('#refresh_placeid').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp Loading...');
 
-        $.ajax({
-            type: "POST",
-            url: ajaxurl,
-            data: JSON.stringify({'establishment_address' : address_search, 'token_api' : token_api}),
-            dataType: "json",
-            contentType: "application/json",
-        })
-        .done(
-          function (response) { 
-              data =jQuery.parseJSON(response);
-              res = data['results'][0]['place_id'];
-              $('#MYGGOGLEREVIEWS_GOOGLE_PLACEID').val(res);
-              $('#refresh_placeid').html('Get Place ID');
-
-              btclass = $('#module_form_submit_btn').attr('class');
-              if (res!=''){
-                  $('#module_form_submit_btn').attr('class', btclass.replace('disabled',''));
-                  alert("Great! You can now register your configuration.");
+        $.post(ajaxurl,
+          {
+            establishment_address : address_search, 
+            token_api : token_api
+          },
+          function(data, status){
+            //alert('data:' +data + '\nStatus: ' + status)
+          })
+          .done(
+            function (response) { 
+                var data = $.parseJSON(response);
+                res = data['results'][0]['place_id'];
+                $('#MYGGOGLEREVIEWS_GOOGLE_PLACEID').val(res);
+                $('#refresh_placeid').html('Get Place ID');
+  
+                btclass = $('#module_form_submit_btn').attr('class');
+                if (res!=''){
+                    $('#module_form_submit_btn').attr('class', btclass.replace('disabled',''));
+                    alert("Great! You can now register your configuration.");
+                }
               }
-            }
-        )
-        .fail(function (jqXHR, textStatus, errorThrown) { 
+          )
+          .fail(function (jqXHR, textStatus, errorThrown) { 
+  
+            var acc = [];
+            $.each(jqXHR, function (index, value) {
+              acc.push(index +" : " + value);
+            });
+            console.log(JSON.stringify(acc) + textStatus + errorThrown);
+            $('#error_mess').append(jqXHR);
+            $('#error_mess').append(textStatus);
+            $('#error_mess').append(errorThrown);
+          });;
 
-          var acc = [];
-          $.each(jqXHR, function (index, value) {
-            acc.push(index +" : " + value);
-          });
-          console.log(JSON.stringify(acc) + textStatus + errorThrown);
-          $('#error_mess').append(jqXHR);
-          $('#error_mess').append(textStatus);
-          $('#error_mess').append(errorThrown);
-        });
+
+        // $.ajax({
+        //     method: "POST",
+        //     url: ajaxurl,
+        //     //data: JSON.stringify({'establishment_address' : address_search, 'token_api' : token_api}),
+        //     data: {establishment_address : address_search, token_api : token_api},
+        //     dataType: "json",
+        //     contentType: "application/json",
+        // })
+        // .done(
+        //   function (response) { 
+        //       data =jQuery.parseJSON(response);
+        //       res = data['results'][0]['place_id'];
+        //       $('#MYGGOGLEREVIEWS_GOOGLE_PLACEID').val(res);
+        //       $('#refresh_placeid').html('Get Place ID');
+
+        //       btclass = $('#module_form_submit_btn').attr('class');
+        //       if (res!=''){
+        //           $('#module_form_submit_btn').attr('class', btclass.replace('disabled',''));
+        //           alert("Great! You can now register your configuration.");
+        //       }
+        //     }
+        // )
+        // .fail(function (jqXHR, textStatus, errorThrown) { 
+
+        //   var acc = [];
+        //   $.each(jqXHR, function (index, value) {
+        //     acc.push(index +" : " + value);
+        //   });
+        //   console.log(JSON.stringify(acc) + textStatus + errorThrown);
+        //   $('#error_mess').append(jqXHR);
+        //   $('#error_mess').append(textStatus);
+        //   $('#error_mess').append(errorThrown);
+        // });
 
       } else {
           $('#result').html('');        

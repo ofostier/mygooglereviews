@@ -23,14 +23,14 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
+
 //declare(strict_types=1);
 
 namespace Mygooglereviews\Controller\Admin;
-//namespace Module\DemoDoctrine\Controller\Admin;
 
 use Configuration;
 use Context;
-use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
+//use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
@@ -38,20 +38,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
-// use Symfony\Component\Form\AbstractType;
-// use Symfony\Component\Form\Extension\Core\Type\DateType;
-// use Symfony\Component\Form\Extension\Core\Type\NumberType;
-// use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-// use Symfony\Component\Form\Extension\Core\Type\TextType;
-// use Symfony\Component\Form\FormBuilderInterface;
-
-//use Mygooglereviews\Form\CommentType;
-//use PrestaShop\Module\MyGoogleReviews\Controller\Admin\Form\CommentType;
-use Mygooglereviews\Entity\Mygooglereviews;
+//use Mygooglereviews\Entity\Mygooglereviews;
 use Mygooglereviews\Entity\Mygooglereviewsreviews;
 use Mygooglereviews\Entity\Mygooglereviewsscore;
-use Mygooglereviews\Entity\Mygooglereviewsscored;
-//use Mygooglereviews\Form\CommentType;
 use Mygooglereviews\Form\EstablishmentType;
 use PrestaShop\PrestaShop\Adapter\Entity\Db;
 use PrestaShop\PrestaShop\Adapter\Entity\HelperForm;
@@ -81,123 +70,109 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
             
             if (empty($this->MYGGOGLEREVIEWS_GOOGLE_TOKEN) || empty($this->MYGGOGLEREVIEWS_ADDRESS) || empty($this->MYGGOGLEREVIEWS_GOOGLE_PLACEID)) {
 
+
                 Tools::redirectAdmin(Context::getContext()->link->getAdminLink('AdminModules').'&configure=mygooglereviews');
 
             }
         }
 
-        // $link_get_placeid = $this->getAdminLink('ps_controller_ajax_get', array('route' => 'ps_controller_ajax_get'));
-        // $link_refresh_reviews = Context::getContext()->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
-        //$this->getAdminLink('ps_controller_ajax_getreviews');//, array('route' => 'ps_controller_ajax_get', 'action' => 'index'));
-        //echo $link_refresh_reviews;
-        //Add const def to JS (global page)
-    //     Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
-    //     echo ">>>>>>" . $link_get_placeid;
-    //     echo ">>>>>>" . $link_refresh_reviews;
+        $link_get_placeid = Context::getContext()->link->getAdminLink('ps_controller_ajax_get', true, array('route' => 'ps_controller_ajax_get'));
+        $link_refresh_reviews = Context::getContext()->link->getAdminLink('ps_controller_ajax_getreviews', true, array('route' => 'ps_controller_ajax_getreviews'));
+        
+         Media::addJsDef(['adminlink_get_placeid' => $link_get_placeid, 'adminlink_refresh_reviews' => $link_refresh_reviews]);
     }
 
     /**
-     * @AdminSecurity("is_granted('read', 'AdminMyGoogleReviewsManualTab')")
+     * @AdminSecurity("is_granted('read', 'AdminMyGoogleReviewsSetGoogleReviews')")
      *
      * @return Response
      */
     public function indexAction(Request $request)
     {
-        //return $this->render('@Modules/mygooglereviews/views/templates/admin/manual_tab.html.twig');
-        //return $this->render('@Modules/mygoog/templates/admin/demo.html.twig');
-
         $data = "";
         $form = $this->createForm(EstablishmentType::class);
-        //$form = $this->createForm($this->buildForm());
 
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
         
-        if($form->isSubmitted() && $form->isValid()) {
+        // if($form->isSubmitted() && $form->isValid()) {
             
 
-            $mygooglereviews = $em->getRepository(Mygooglereviews::class)->findOneBy(array('placeid' => $form->get('placeid')->getData() )); //new Mygooglereviews();
+        //     $mygooglereviews = $em->getRepository(Mygooglereviews::class)->findOneBy(array('placeid' => $form->get('placeid')->getData() )); //new Mygooglereviews();
 
-            //var_dump($form->get('address')->getData());
-           // var_dump($form->get('placeid')->getData());
-            if (!$mygooglereviews) {
-                $mygooglereviews = new mygooglereviews(); 
-            }
+        //     //var_dump($form->get('address')->getData());
+        //    // var_dump($form->get('placeid')->getData());
+        //     if (!$mygooglereviews) {
+        //         $mygooglereviews = new mygooglereviews(); 
+        //     }
             
 
-            $mygooglereviews->setAddress($form->get('address')->getData());
-            $mygooglereviews->setPlaceid($form->get('placeid')->getData());
+        //     $mygooglereviews->setAddress($form->get('address')->getData());
+        //     $mygooglereviews->setPlaceid($form->get('placeid')->getData());
 
-            $em->persist($mygooglereviews);
-            $em->flush();
+        //     $em->persist($mygooglereviews);
+        //     $em->flush();
 
-            $this->addFlash("success","Form has been correctly submited.   ");
-            //$this->addFlash("error","500 === Form has been correctly submited.   ");
+        //     $this->addFlash("success","Form has been correctly submited.   ");
+        //     //$this->addFlash("error","500 === Form has been correctly submited.   ");
             
-            //dump($form->getData());
-        }
-        else {
-            // ????
-            // echo "TRUNCATE TABLE";
-            // $connection = $this->getDoctrine()->getConnection();
-            // $platform   = $connection->getDatabasePlatform();
-            // $connection->executeUpdate($platform->getTruncateTableSQL('ps_mygooglereviews', true /* whether to cascade */));
-        }
+        //     //dump($form->getData());
+        // }
+        // else {
+        //     // ????
+        //     // echo "TRUNCATE TABLE";
+        //     // $connection = $this->getDoctrine()->getConnection();
+        //     // $platform   = $connection->getDatabasePlatform();
+        //     // $connection->executeUpdate($platform->getTruncateTableSQL('ps_mygooglereviews', true /* whether to cascade */));
+        // }
 
         //$em = $this->getDoctrine()->getManager();
         //$address = $em->getRepository(Mygooglereviews::class)->findAll($criteria="id=1");
-        $address = $em->getRepository(Mygooglereviews::class)->findOneBy(array('id' => 1 ));
-        //$placeid = $address->getPlaceid();
-        if ($address == null) {
-            $placeid = "";
-            $addressId = "";
-            echo "EMPTY DATA ADDRESS";
-        }
-        else {
+        
+        // $address = $em->getRepository(Mygooglereviews::class)->findOneBy(array('id' => 1 ));
+        // //$placeid = $address->getPlaceid();
+        // if ($address == null) {
+        //     $placeid = "";
+        //     $addressId = "";
+        //     echo "EMPTY DATA ADDRESS";
+        // }
+        // else {
 
-            //$placeid = (array($address->getPLaceid()));
-            $placeid = $address->getPLaceid();
-            $addressId = $address->getId();
-            echo "FOUNDED DATA ADDRESS";
-        }
+        //     //$placeid = (array($address->getPLaceid()));
+        //     $placeid = $address->getPLaceid();
+        //     $addressId = $address->getId();
+        //     echo "FOUNDED DATA ADDRESS";
+        // }
 
-        $scores = $em->getRepository(Mygooglereviewsscore::class)->findBy(array('establishment_id' => $placeid));
-        //var_dump($scores);
-        $reviews = $em->getRepository(Mygooglereviewsreviews::class)->findBy(array('placeid' => $placeid));
-        //var_dump($reviews);
-        //$data = $em->getRepository(Mygooglereviews::class)->find(1);
-        $data = (object) array('id' => $addressId, 'address' => $this->MYGGOGLEREVIEWS_ADDRESS, 'placeid' => $placeid );
+        $scores = $em->getRepository(Mygooglereviewsscore::class)->findBy(array('establishment_id' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID));
+
+        $reviews = $em->getRepository(Mygooglereviewsreviews::class)->findBy(array('placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID));
+
+        $data = (object) array('id' => "x", 'address' => $this->MYGGOGLEREVIEWS_ADDRESS, 'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID );
 
         $form = $this->createForm(EstablishmentType::class, $data);
 
-        $shop = $this->getContext()->shop->id; //$this->getAdminLink();
+        $shop = $this->getContext()->shop->id; 
         $base_url = $this->getContext()->link->getBaseLink();
-        //var_dump($data);
-        //exit();
 
         $value = Tools::getValue('MYGGOGLEREVIEWS_ADDRESS');
         $value2 = Configuration::get('MYGGOGLEREVIEWS_ADDRESS');
-        //var_dump($value);
+
 
         return $this->render(
-            // "@Modules/mybasicmodule/views/templates/admin/comment.html.twig",
-            //"@Modules/mygooglereviews/views/templates/admin/set.html.twig",
             "@Modules/mygooglereviews/views/templates/admin/index.html.twig",
             [
                 'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID,
                 'address' => $this->MYGGOGLEREVIEWS_ADDRESS,
-                'data' => $address,
+                'data' => $this->MYGGOGLEREVIEWS_ADDRESS,
+                'scores' => $scores,
                 'scores' => $scores,
                 'reviews' => $reviews,
                 "form" => $form->createView(),
                 "info" => $value2,
-                //"form2" => $this->esForm(),
             ]
         );
-
-        //return $this->render('@Modules/mygooglereviews/views/templates/admin/set.html.twig');
-        //return $this->render('@Modules/mygooglereviews/views/templates/admin/index.html.twig');
     }
 
     public function esForm() 
@@ -229,27 +204,31 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
     }
     
     public function ajaxgetplaceidAction() {
-        //var_dump("AJAX GET ACTION");
-
-                
         //return new Response(json_encode($_POST));
         
-        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN; //'AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o';
+        $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN;
     
         $places = array();
+
+       // var_dump($_POST);
+        //return new Response(json_encode($_POST));
     
         $request = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
         $params  = array(
-            "query" => "krysakids, mallemort", //$_POST['establishment_address'],
-            "key"   => "AIzaSyAm6X8wBA-nm_RJ1Xg3qgUEiUx124hg41o", //$_POST['token_api'],
+            "query" => $_POST['establishment_address'],
+            "key"   => $_POST['token_api'],
             "language" => "fr"
         );
+
+        
     
         $request .= http_build_query($params);
     
         $json = file_get_contents($request);
 
-        return new Response(json_encode($json));
+        //Take care Google API is already JSON
+        //return new Response(json_encode($json));
+        return new Response($json);
 
     }
 
@@ -270,22 +249,15 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $request .= http_build_query($params);
     
         $json = file_get_contents($request);
-        //echo json_encode($json);
-        //exit();
+        //$data = json_decode($json, true);
         $data = json_decode($json, true);
-        //$data = json_decode($json);
         
-        $result = json_decode(json_encode ( $json ) , true);
+        //$result = json_decode(json_encode ( $json ) , true);
 
         $sql = $this->sqlInsertScore($_POST['placeid'], $data['result']['rating'], $data['result']['user_ratings_total']);
-        // return new Response(json_encode(
-        //     [
-        //         "result" => ["sql"=>$sql]
-        //     ]
-        // ));
 
         $this->reviews =  $data['result']['reviews'];
-        $sql2 = $this->sqlInsertReviews($_POST['placeid'], $data['result']['reviews']); //$_POST['placeid'], $data['result']['reviews']);
+        $sql2 = $this->sqlInsertReviews($_POST['placeid'], $data['result']['reviews']);
 
         return new Response(json_encode(
             [
@@ -300,8 +272,10 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
 
     public function sqlInsertScore($placeid, $score=0, $nbvotes=0) {
 
+
         $em = $this->container->get('doctrine.orm.entity_manager');
         $mygooglereviewsscore = $em->getRepository(Mygooglereviewsscore::class)->findOneBy(array('establishment_id' => $placeid ));
+        
         if (!$mygooglereviewsscore) {
             $mygooglereviewsscore = new mygooglereviewsscore(); 
         }
@@ -317,11 +291,8 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
 
     }
 
-    //public function sqlInsertReviews($placeid=0, $reviews=[]) {
     public function sqlInsertReviews($placeid = "placeiiiiid", $reviews) {
 
-
-        //$emd = $this->container->get('doctrine.orm.entity_manager');
         $em = $this->container->get('doctrine.orm.entity_manager');
 
         $query = $em->createQuery(
@@ -351,14 +322,12 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
             $mygooglereviewsreviews->setTranslated($review['translated']);
 
             $em->persist($mygooglereviewsreviews);
-            sleep(1);
-            
-            
         }
         
         $em->flush();
 
-        return $cnt; //$review['profile_photo_url'];
+        return $cnt; 
 
     }
+
 }
