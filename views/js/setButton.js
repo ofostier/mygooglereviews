@@ -3,7 +3,7 @@ $(() => {
     if (typeof window.prestashop.component !== 'undefined') { window.prestashop.component.initComponents(['Router']); }
    
     // initiate the search on button click
-    $(document).on('click', '#refresh_reviews', () => refresh_review("ChIJb4jLDFQDyhIR-N-AV2AKLqs"));
+    $(document).on('click', '#refresh_reviews', () => refresh_review($('#refresh_reviews').attr( "value" )));
     
     $.urlParam = function(name){
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -26,29 +26,30 @@ $(() => {
           .done(
             function (response) { 
 
-              data = response;
+              // console.log(response)
+              // data = response;
               
-              user_ratings_total = data['result']['user_ratings_total'];
-              rating = data['result']['rating'];
-              reviews = data['result']['reviews'];
-
-              location.reload(true);
+              // user_ratings_total = data['result']['user_ratings_total'];
+              // rating = data['result']['rating'];
+              // reviews = data['result']['reviews'];
 
               // res = $data['results'][0]['place_id'];
               // $('#establishment_placeid').val(res);
               $('#refresh_reviews').html('Refresh');
 
               alert('Refresh successful! Page will be reloaded!')
-             }
+
+              location.reload(true);
+            }
           )
           .fail(function (jqXHR, textStatus, errorThrown) { 
-            objtoarray(jqXHR);
-            objtoarray(errorThrown);
-            alert(textStatus);
-            $('#error_mess').append(jqXHR);
-            $('#error_mess').append(textStatus);
-            $('#error_mess').append(errorThrown);
-            $('#refresh_reviews').html('Refresh');
+            // objtoarray(jqXHR);
+            // objtoarray(errorThrown);
+            // alert(textStatus);
+            // $('#error_mess').append(jqXHR);
+            // $('#error_mess').append(textStatus);
+            // $('#error_mess').append(errorThrown);
+            // $('#refresh_reviews').html('Refresh');
             
             //location.reload(true);
           });

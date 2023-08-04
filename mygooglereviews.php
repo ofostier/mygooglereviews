@@ -29,6 +29,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Doctrine\ORM\Query\Expr\Func;
 use Mygooglereviews\Controller\Admin\SetGoogleReviewsController;
 use Mygooglereviews\Controller\Admin\MyTestController;
+use Mygooglereviews\Entity\Mygooglereviewsscore;
 use Prestashop\PrestaShop\Adapter\SymfonyContainer;
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
@@ -380,14 +381,47 @@ class mygooglereviews extends Module implements WidgetInterface
     {
         //$myParamKey = $configuration['my_param_key'] ?? "null";
         
+        $result = $this->sqlGetScore(Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
+        //var_dump($result['establishment_nbvote']);
+        $score = $result['establishment_score'];
+        $nbrating = $result['establishment_nbvote'];
+        
         return [
-            'score' => number_format((float)5,1),
-            'scorepercent' => 100*(5/5),
-            'nbrating' => '77',
+            'score' => number_format((float)$score,1),
+            'scorepercent' => 100*($score/5),
+            'nbrating' => $nbrating,
             'css' => $this->_path .'views/css/mygooglereviews_score.css',
             'css2' => '/modules/' . $this->name . '/views/css/mygooglereviews_score.css'
             //'my_dynamic_var_by_param' => $this->getMyDynamicVarByParamKey($myParamKey),
         ];
+    }
+
+    public function sqlGetScore($placeid) {
+
+        $query = new DbQuery();
+        $query
+            ->select('*')
+            ->from('mygooglereviewsscore')
+            ->where('establishment_id ="'.$placeid.'"');
+
+        $states = Db::getInstance()->getRow($query);
+
+        return $states;
+
+        $em = $this->container->get('doctrine.orm.entity_manager');
+        $mygooglereviewsscore = $em->getRepository(Mygooglereviewsscore::class)->findOneBy(array('establishment_id' => $placeid ));
+        
+        // $mygooglereviewsscore->setEstablishment_id($placeid);
+        // $mygooglereviewsscore->setEstablishment_score($score);
+        // $mygooglereviewsscore->setEstablishment_nbvote($nbvotes);
+
+        // $em->persist($mygooglereviewsscore);
+        // $em->flush();
+
+        return $mygooglereviewsscore;
+
+        return $mygooglereviewsscore->getId();
+
     }
     
     public function getMyDynamicVarByParamKey(string $paramKey)

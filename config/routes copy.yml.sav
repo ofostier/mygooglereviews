@@ -1,5 +1,0 @@
-ps_controller_tabs_demo:
-    path: /configure-tabs/demo
-    methods: [GET]
-    defaults:
-        _controller: 'Mygooglereviews\Controller\Admin\DemoController::demoAction'

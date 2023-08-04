@@ -37,10 +37,11 @@
     font-size: 20px;
 }
 .mgtitleeval {
-    color: rgb(17, 17, 17);
+    /* color: rgb(17, 17, 17); */
+    color:#BB6F58;
 }
 .footer-container .mgtitleeval {
-    color: rgba(253, 253, 253, 0.993);
+    color:#BB6F58;
 }
 .mgscore:first-child:not(:only-child) {
     margin-right: 8px;
@@ -50,11 +51,11 @@
     font-weight: 700;
     line-height: normal;
     font-size: 20px;
-    color: rgb(17, 17, 17);
+    color:#BB6F58;
     word-break: normal !important;
 }
 .footer-container .mgscore {
-    color: rgba(253, 253, 253, 0.993);
+    color:#BB6F58;
 }
 .mgscoreinfo {
     display: flex;
@@ -77,7 +78,7 @@
     color: rgba(17, 17, 17, 0.5);
 }
 .footer-container .mgheadertotalreviews {
-    color: rgba(253, 253, 253, 0.993);
+    color:#BB6F58;
 }
 .mgreviewsvalue {
     display: inline;
@@ -102,7 +103,8 @@
     top: 0;
     white-space: nowrap;
     overflow: hidden;
-    color: #fde16d;
+    color: #BB6F58;
+    /* color: #fde16d; */
   }
   
   .empty-stars:before,
@@ -116,19 +118,22 @@
   }
   
   .full-stars:before {
-    -webkit-text-stroke: 1px orange;
+    /* -webkit-text-stroke: 1px orange; */
+    -webkit-text-stroke: 1px #BB6F58;
   }
   
   /* Webkit-text-stroke is not supported on firefox or IE */
   /* Firefox */
+  /* color: #ECBE24; */
+
   @-moz-document url-prefix() {
     .full-stars{
-      color: #ECBE24;
+      color: #BB6F58;
     }
   }
   /* IE */
   <!--[if IE]>
     .full-stars{
-      color: #ECBE24;
+      color: #BB6F58;
     }
   <![endif]-->

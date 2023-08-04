@@ -146,7 +146,7 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         // }
 
         $scores = $em->getRepository(Mygooglereviewsscore::class)->findBy(array('establishment_id' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID));
-       
+
         $reviews = $em->getRepository(Mygooglereviewsreviews::class)->findBy(array('placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID));
 
         $data = (object) array('id' => "x", 'address' => $this->MYGGOGLEREVIEWS_ADDRESS, 'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID );
@@ -159,19 +159,18 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $value = Tools::getValue('MYGGOGLEREVIEWS_ADDRESS');
         $value2 = Configuration::get('MYGGOGLEREVIEWS_ADDRESS');
 
+
         return $this->render(
-            // "@Modules/mybasicmodule/views/templates/admin/comment.html.twig",
-            //"@Modules/mygooglereviews/views/templates/admin/set.html.twig",
             "@Modules/mygooglereviews/views/templates/admin/index.html.twig",
             [
                 'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID,
                 'address' => $this->MYGGOGLEREVIEWS_ADDRESS,
                 'data' => $this->MYGGOGLEREVIEWS_ADDRESS,
                 'scores' => $scores,
+                'scores' => $scores,
                 'reviews' => $reviews,
                 "form" => $form->createView(),
                 "info" => $value2,
-                //"form2" => $this->esForm(),
             ]
         );
     }
@@ -210,6 +209,9 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $API_KEY = $this->MYGGOGLEREVIEWS_GOOGLE_TOKEN;
     
         $places = array();
+
+       // var_dump($_POST);
+        //return new Response(json_encode($_POST));
     
         $request = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
         $params  = array(
@@ -217,12 +219,16 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
             "key"   => $_POST['token_api'],
             "language" => "fr"
         );
+
+        
     
         $request .= http_build_query($params);
     
         $json = file_get_contents($request);
 
-        return new Response(json_encode($json));
+        //Take care Google API is already JSON
+        //return new Response(json_encode($json));
+        return new Response($json);
 
     }
 
@@ -243,9 +249,10 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         $request .= http_build_query($params);
     
         $json = file_get_contents($request);
+        //$data = json_decode($json, true);
         $data = json_decode($json, true);
         
-        $result = json_decode(json_encode ( $json ) , true);
+        //$result = json_decode(json_encode ( $json ) , true);
 
         $sql = $this->sqlInsertScore($_POST['placeid'], $data['result']['rating'], $data['result']['user_ratings_total']);
 
@@ -265,8 +272,10 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
 
     public function sqlInsertScore($placeid, $score=0, $nbvotes=0) {
 
+
         $em = $this->container->get('doctrine.orm.entity_manager');
         $mygooglereviewsscore = $em->getRepository(Mygooglereviewsscore::class)->findOneBy(array('establishment_id' => $placeid ));
+        
         if (!$mygooglereviewsscore) {
             $mygooglereviewsscore = new mygooglereviewsscore(); 
         }
@@ -320,4 +329,5 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
         return $cnt; 
 
     }
+
 }
