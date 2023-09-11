@@ -381,17 +381,20 @@ class mygooglereviews extends Module implements WidgetInterface
     {
         //$myParamKey = $configuration['my_param_key'] ?? "null";
         
-        $result = $this->sqlGetScore(Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
+        $scores = $this->sqlGetScore(Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
         //var_dump($result['establishment_nbvote']);
-        $score = $result['establishment_score'];
-        $nbrating = $result['establishment_nbvote'];
+        $score = $scores['establishment_score'];
+        $nbrating = $scores['establishment_nbvote'];
         
+        $reviews = $this->sqlGetReviews(Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));;
+        // var_dump($reviews);
         return [
             'score' => number_format((float)$score,1),
             'scorepercent' => 100*($score/5),
             'nbrating' => $nbrating,
-            'css' => $this->_path .'views/css/mygooglereviews_score.css',
-            'css2' => '/modules/' . $this->name . '/views/css/mygooglereviews_score.css'
+            //'css' => $this->_path .'views/css/mygooglereviews_score.css',
+            //'css2' => '/modules/' . $this->name . '/views/css/mygooglereviews_score.css',
+            'reviews' => $reviews
             //'my_dynamic_var_by_param' => $this->getMyDynamicVarByParamKey($myParamKey),
         ];
     }
@@ -421,6 +424,34 @@ class mygooglereviews extends Module implements WidgetInterface
         return $mygooglereviewsscore;
 
         return $mygooglereviewsscore->getId();
+
+    }
+    public function sqlGetReviews($placeid) {
+
+        $query = new DbQuery();
+        $query
+            ->select('*')
+            ->from('mygooglereviewsreviews')
+            ->where('placeid ="'.$placeid.'"')
+            ->orderby('rand()');
+
+        $reviews = Db::getInstance()->executeS($query);
+
+        return $reviews;
+
+        // $em = $this->container->get('doctrine.orm.entity_manager');
+        // $mygooglereviewsreviews = $em->getRepository(Mygooglereviewsscore::class)->find(); //By(array('placeid' => $placeid ));
+        
+        // $mygooglereviewsscore->setEstablishment_id($placeid);
+        // $mygooglereviewsscore->setEstablishment_score($score);
+        // $mygooglereviewsscore->setEstablishment_nbvote($nbvotes);
+
+        // $em->persist($mygooglereviewsscore);
+        // $em->flush();
+
+        return $mygooglereviewsreviews;
+
+        //return $mygooglereviewsscore->getId();
 
     }
     

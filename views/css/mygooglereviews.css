@@ -15,6 +15,7 @@
     -webkit-box-align: center;
     align-items: center;
     padding: 18px 24px 24px;
+    margin-bottom: 15px;
     background-color: rgba(17, 17, 17, 0.05);
 }
 
@@ -137,3 +138,519 @@
       color: #BB6F58;
     }
   <![endif]-->
+
+  #widget-container * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+  #tm-jshogg .go3270310627 .tm-carousel-item {
+    padding: 0.75em;
+    transition: 0.4s opacity ease-in-out;
+}
+
+#tm-jshogg .go2402097865, #tm-jshogg .go2402097865 *, #tm-jshogg .go2402097865 *::before, #tm-jshogg .go2402097865 *::after {
+  animation: revert;
+  background: revert;
+  border: revert;
+  position: revert;
+  display: revert;
+  columns: revert;
+  margin: revert;
+  padding: revert;
+  list-style: revert;
+  border-radius: revert;
+  box-shadow: revert;
+  color: revert;
+  font-size: revert;
+  font-style: revert;
+  font-weight: revert;
+  text-align: revert;
+  text-decoration: revert;
+  text-indent: revert;
+  text-shadow: revert;
+  text-transform: revert;
+  transform: revert;
+  transition: revert;
+  vertical-align: revert;
+  word-spacing: revert;
+  word-wrap: revert;
+  word-break: revert;
+  quotes: revert;
+  float: revert;
+  clear: revert;
+  grid: revert;
+  offset: revert;
+  opacity: revert;
+  outline: revert;
+  overflow: revert;
+  height: revert;
+  width: revert;
+  min-height: revert;
+  min-width: revert;
+  max-height: revert;
+  max-width: revert;
+  top: revert;
+  right: revert;
+  bottom: revert;
+  left: revert;
+  line-height: revert;
+  resize: revert;
+  z-index: revert;
+  -webkit-box-decoration-break: revert;
+  -webkit-font-smoothing: revert;
+  -webkit-hyphenate-character: revert;
+  box-sizing: border-box;
+}
+
+#tm-jshogg div.go941208248 {
+  font-size: 16px;
+  font-family: Roboto;
+}
+
+#tm-jshogg h2.go3161678027 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+#tm-jshogg div.go3136508558 {
+  overflow: hidden;
+  position: relative;
+  direction: ltr;
+}
+
+#tm-jshogg .go3270310627 .tm-carousel-outside {
+  opacity: 0;
+}
+
+#tm-jshogg .go3270310627 .tm-carousel-item {
+  padding: 0.75em;
+  transition: 0.4s opacity ease-in-out;
+}
+#tm-jshogg .go3270310627 .tm-carousel-outside {
+  opacity: 0;
+}
+#tm-jshogg div.go2941804542 {
+  display: flex;
+  width: 100%;
+  margin: auto 0;
+  height: 100%;
+}
+#tm-jshogg div.go2906166850 {
+  background: #ffffff;
+  border-radius: 1em;
+  padding: 1.5em;
+  box-shadow: 0 0.75em 1.5em -0.25em #919eab1f, 0 0 0.125em 0 #919eab33;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 1em;
+  line-height: 1.5em;
+  flex: 1;
+}
+#tm-jshogg div.go2878634919 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: top;
+}
+#tm-jshogg .go2878634919 .tm-top-first {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  min-height: 1.5em;
+  justify-content: start;
+  align-items: center;
+}
+#tm-jshogg div.go2042897421 {
+  display: flex;
+  height: 1em;
+  width: 5em;
+  position: relative;
+}
+#tm-jshogg .go2878634919 .tm-time {
+  color: #5f7482;
+}
+#tm-jshogg .go2878634919 .tm-source {
+  margin-left: auto;
+  padding-left: 10px;
+}
+#tm-jshogg .go2878634919 .tm-source-logo {
+  display: flex;
+  align-items: center;
+}
+#tm-jshogg img.go49508398 {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+#tm-jshogg div.go3073557368 {
+  flex: 1;
+}
+#tm-jshogg div.go4008414990 {
+  color: #000;
+}
+/*   */
+#tm-jshogg div.go1755512589 {
+  margin-top: 1em;
+}
+#tm-jshogg div.go4003756576 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  text-align: left;
+}
+#tm-jshogg .go4003756576 .tm-bottom-picture {
+  display: flex;
+  align-items: center;
+}
+#tm-jshogg .go4003756576 .tm-bottom-person {
+  flex: 1;
+  line-height: 1.5em;
+  display: flex;
+  flex-direction: column;
+}
+#tm-jshogg .go4003756576 .tm-bottom-picture img {
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* New mode */
+.carousel-layout-container {
+  display:grid;
+  grid-template-columns:minmax(0px, 1fr);
+  background-color: #5f7482;
+}
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.reviews-backgroud-container {
+  position: relative;
+  transition: background-color 0.1s ease 0s;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  padding: 24px;
+  background-color: rgba(17, 17, 17, 0.05);
+}
+.review-author-block-info-container {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  min-width: 0px;
+  max-width: 100%;
+}
+.link-box {
+  align-self: flex-start;
+  margin-right: 12px;
+}
+.link-content {
+  color: inherit;
+  max-width: 100%;
+  text-decoration: none;
+  position: static !important;
+  border: none !important;
+}
+.review-author-name {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+/* @media screen and (max-width: 992px) {
+  .parent {
+    flex: 50%;
+  }
+} */
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+/* @media screen and (max-width: 600px) {
+  .child {
+    flex-direction: column;
+  }
+} */
+
+.wrap {
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  left: -100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transform: translateX(100%);
+}
+@media (min-width: 30em) {
+  .carousel {
+    left: -50%;
+    transform: translateX(50%);
+  }
+}
+@media (min-width: 40em) {
+  .carousel {
+    left: -33.33333%;
+    transform: translateX(33.33333%);
+  }
+}
+
+.carousel.is-reversing {
+  transform: translateX(-100%);
+}
+@media (min-width: 30em) {
+  .carousel.is-reversing {
+    transform: translateX(-50%);
+  }
+}
+@media (min-width: 40em) {
+  .carousel.is-reversing {
+    transform: translateX(-33.33333%);
+  }
+}
+
+.carousel.is-set {
+  transform: none;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.carousel-seat {
+  background: #F2F2F2;
+  flex: 1 0 100%;
+  order: 2;
+  border-radius: 8px;
+}
+.carousel-seat:nth-child(even) {
+  /* background: #d5d5d5; */
+}
+@media (min-width: 30em) {
+  .carousel-seat {
+    flex-basis: 50%;
+  }
+}
+@media (min-width: 40em) {
+  .carousel-seat {
+    flex-basis: 33.33333%;
+  }
+}
+
+.carousel-seat.is-ref {
+  order: 1;
+}
+
+h2 {
+  color: #aaa;
+  font-size: 7em;
+  font-weight: normal;
+  margin: 0;
+  padding: 0.6em 0;
+  text-align: center;
+}
+
+.controls {
+  padding: 2em;
+  text-align: center;
+}
+.controls button {
+  background: #aaa;
+  border: 0;
+  border-radius: 0.25em;
+  color: #eee;
+  padding: 0.5em 1em;
+}
+.controls button:hover, .controls button:focus {
+  background: magenta;
+}
+
+.car-review_container {
+  position: relative;
+  transition: background-color 0.1s ease 0s;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  padding: 24px;
+  /* background-color: rgba(17, 17, 17, 0.05); */
+}
+.car-review_container .author-block {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 100%;
+}
+.car-review_container .link-container {
+  align-self: flex-start;
+  margin-right: 12px;
+  color: inherit;
+  max-width: 100%;
+  text-decoration: none;
+  position: static !important;
+  border: none !important;
+}
+.car-review_container .review-avatar-container {
+  align-self: flex-start;
+  width: 40px;
+  height: 40px;
+  position: relative;
+
+}
+.car-review_container .review-avatar-container .avatar-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  box-shadow: rgba(17, 17, 17, 0.1) 0px 0px 2px inset;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.car-review_container .review-avatar-container .avatar-background {
+  width: inherit;
+  height: inherit;
+  transition: opacity 1s ease-out 0s;
+  background-color: rgb(210, 210, 210);
+  opacity: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.car-review_container .review-avatar-container img {
+  object-fit: cover;
+}
+.car-review_container .review-avatar-container .avatar-style {
+  display: inline-block !important;
+  position: static !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  max-width: none !important;
+  height: inherit !important;
+  width: inherit !important;
+  visibility: visible !important;
+}
+.car-review_container .review-avatar-container .review-avatar-source-icon {
+  bottom: -6px;
+  right: -6px;
+  position: absolute !important;
+}
+.car-review_container .review-avatar-container .review-avatar-source-icon .review-source-source-icon{
+  width: 24px;
+  height: 24px;
+}
+.car-review_container .review-avatar-container svg {
+  display: block;
+  object-fit: contain;
+  width: 24px;
+  height: 24px;
+}
+.car-review_container .author-block-info-container {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  min-width: 0px;
+  max-width: 100%;
+}
+.car-review_container .author-block-info-container .link {
+  color: inherit;
+  max-width: 100%;
+  text-decoration: none;
+  position: static !important;
+  border: none !important;
+}
+.car-review_container .author-block-info-container .link-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: left;
+  color: rgb(17, 17, 17) !important;
+  margin-bottom: 4px;
+}
+.car-review_container .author-block-info-container .review-author-name {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.car-review_container .author-block-info-container .review-verified-badge-container {
+  margin-left: 5px;
+  display: flex;
+}
+.car-review_container .author-block-info-container .review-verified-badge-icon {
+  width: 14px;
+  height: 14px;
+}
+.car-review_container .author-block-info-container .review-verified-badge-icon path:first-child {
+  fill: rgb(187, 111, 88);
+}
+.car-review_container .author-block-info-container .review-info-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(17, 17, 17, 0.5);
+}
+.car-review_container .review-align-container {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.car-review_container .review-align-container .review-content-container {
+  max-width: 100%;
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating {
+  margin-bottom: 6px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;  
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating .rating-bar-container {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  align-items: center; 
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating .rating-bar-container .rating-stars-item-filled {
+  margin-right: 0px;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating .rating-bar-container .rating-item-unfilled {
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  line-height: 0;
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating .rating-bar-container .rating-item .rating-item-unfilled svg {
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating .rating-bar-container .rating-item .rating-item-filled {
+  clip-path: inset(0px 0% 0px 0px);
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  line-height: 0;  
+}
+.car-review_container .review-align-container .review-content-container .review-content-rating .rating-bar-container .rating-item .rating-item-filled svg {
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+}
