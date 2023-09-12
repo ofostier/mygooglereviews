@@ -295,33 +295,67 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
 
         $em = $this->container->get('doctrine.orm.entity_manager');
 
-        $query = $em->createQuery(
-            'DELETE FROM Mygooglereviews\Entity\Mygooglereviewsreviews e WHERE e.placeid = :placeid'
-         )->setParameter('placeid', $placeid)->execute();
+        // $query = $em->createQuery(
+        //     'DELETE FROM Mygooglereviews\Entity\Mygooglereviewsreviews e WHERE e.placeid = :placeid'
+        //  )->setParameter('placeid', $placeid)->execute();
   
         // sleep(2);
         $cnt=[];
 
         foreach ($reviews as $review) {
+
+            // Test if data already exist
+            //$sql_check = "SELECT * FROM ps_mygooglereviewsreviews WHERE author_name='" . $review['author_name'] ."' AND profile_photo_url='" . $review['profile_photo_url'] ."' AND time='" . $review['time'] . "'";
             
-            array_push($cnt, $review['author_name']);
+            $sql_check = $em->getRepository(Mygooglereviewsreviews::class)->findOneBy(
+                array(
+                    'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID,
+                    'author_name' => $review['author_name'],
+                    'time' => $review['time'],
+                    'profile_photo_url' => $review['profile_photo_url']
+                )
+            );
 
-            
-            $mygooglereviewsreviews = new Mygooglereviewsreviews(); 
+            if (empty($sql_check)) {
+                // var_dump("ok");
+                // var_dump($sql_check);
+                // var_dump('end');
+                // die();
 
-            $mygooglereviewsreviews->setPlaceid($placeid);
-            $mygooglereviewsreviews->setAuthor_name($review['author_name']);
-            $mygooglereviewsreviews->setAuthor_url($review['author_url']);
-            $mygooglereviewsreviews->setLanguage($review['language']);
-            $mygooglereviewsreviews->setOriginal_language($review['original_language']);
-            $mygooglereviewsreviews->setProfile_photo_url($review['profile_photo_url']);
-            $mygooglereviewsreviews->setRating($review['rating']);
-            $mygooglereviewsreviews->setRelative_time_description($review['relative_time_description']);
-            $mygooglereviewsreviews->setText($review['text']);
-            $mygooglereviewsreviews->setTime($review['time']);
-            $mygooglereviewsreviews->setTranslated($review['translated']);
+                array_push($cnt, $review['author_name']);
 
-            $em->persist($mygooglereviewsreviews);
+                
+                $mygooglereviewsreviews = new Mygooglereviewsreviews(); 
+
+                $mygooglereviewsreviews->setPlaceid($placeid);
+                $mygooglereviewsreviews->setAuthor_name($review['author_name']);
+                $mygooglereviewsreviews->setAuthor_url($review['author_url']);
+                $mygooglereviewsreviews->setLanguage($review['language']);
+                $mygooglereviewsreviews->setOriginal_language($review['original_language']);
+                $mygooglereviewsreviews->setProfile_photo_url($review['profile_photo_url']);
+                $mygooglereviewsreviews->setRating($review['rating']);
+                $mygooglereviewsreviews->setRelative_time_description($review['relative_time_description']);
+                $mygooglereviewsreviews->setText($review['text']);
+                $mygooglereviewsreviews->setTime($review['time']);
+                $mygooglereviewsreviews->setTranslated($review['translated']);
+
+                $em->persist($mygooglereviewsreviews);
+            }
+            else{
+                // var_dump($sql_check);
+                // echo $sql_check->getId();
+                // die();
+                $sql_check->setPlaceid($placeid);
+                $sql_check->setAuthor_name($review['author_name']);
+                $sql_check->setAuthor_url($review['author_url']);
+                $sql_check->setOriginal_language($review['original_language']);
+                $sql_check->setProfile_photo_url($review['profile_photo_url']);
+                $sql_check->setRating($review['rating']);
+                $sql_check->setRelative_time_description($review['relative_time_description']);
+                $sql_check->setText($review['text']);
+                $sql_check->setTime($review['time']);
+                $sql_check->setTranslated($review['translated']);
+            }
         }
         
         $em->flush();
