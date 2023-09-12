@@ -380,8 +380,8 @@ class mygooglereviews extends Module implements WidgetInterface
     public function getWidgetVariables($hookName , array $configuration)
     {
         //$myParamKey = $configuration['my_param_key'] ?? "null";
-        
-        $scores = $this->sqlGetScore(Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID'));
+        $placeid = Configuration::get('MYGGOGLEREVIEWS_GOOGLE_PLACEID');
+        $scores = $this->sqlGetScore($placeid);
         //var_dump($result['establishment_nbvote']);
         $score = $scores['establishment_score'];
         $nbrating = $scores['establishment_nbvote'];
@@ -394,7 +394,8 @@ class mygooglereviews extends Module implements WidgetInterface
             'nbrating' => $nbrating,
             //'css' => $this->_path .'views/css/mygooglereviews_score.css',
             //'css2' => '/modules/' . $this->name . '/views/css/mygooglereviews_score.css',
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'placeid' => $placeid
             //'my_dynamic_var_by_param' => $this->getMyDynamicVarByParamKey($myParamKey),
         ];
     }
