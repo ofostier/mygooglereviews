@@ -252,7 +252,7 @@
                                  <div>{$review.text}</div>
                               </div>
                            </div>
-                           <div tabindex="0" class="ShortenedText"><a href="{$review.author_url}">Lire la suite</a></div>
+                           <div tabindex="0" class="ShortenedText"><a target="_blank" href="{$review.author_url}">Lire la suite</a></div>
                         </div>
                      </div>
                   </div>
