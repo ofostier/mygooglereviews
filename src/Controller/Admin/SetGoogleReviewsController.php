@@ -312,7 +312,7 @@ class SetGoogleReviewsController extends FrameworkBundleAdminController
                     'placeid' => $this->MYGGOGLEREVIEWS_GOOGLE_PLACEID,
                     'author_name' => $review['author_name'],
                     'time' => $review['time'],
-                    'profile_photo_url' => $review['profile_photo_url']
+                    'author_url' => $review['author_url']
                 )
             );
 
