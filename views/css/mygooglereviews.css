@@ -1,7 +1,11 @@
+.footer-container .wrap {
+  display: none;
+}
 
 .mglayoutscore {
     display: grid;
     grid-template-columns: minmax(0px, 1fr);
+    padding-bottom: 20px;
 }
 
 .mgheaderscore {
@@ -37,6 +41,7 @@
     color: rgb(17, 17, 17);
     font-size: 20px;
 }
+
 .mgtitleeval {
     /* color: rgb(17, 17, 17); */
     color:#BB6F58;
@@ -46,7 +51,6 @@
 }
 .mgscore:first-child:not(:only-child) {
     margin-right: 8px;
-
 }
 .mgscore{
     font-weight: 700;
@@ -122,7 +126,61 @@
     /* -webkit-text-stroke: 1px orange; */
     -webkit-text-stroke: 1px #BB6F58;
   }
-  
+  .button_add_review {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0px;
+    line-height: 1.32;
+    cursor: pointer;
+    box-sizing: border-box;
+    background: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    border-style: solid;
+  }
+  .button_add_review .button_add_review_base {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: inherit;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .button_add_review .button_add_review_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .arrow {
+    z-index: 2;
+    flex: 0 1 0%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+    right: 0px;
+  }
+  .arrow .arrow_control {
+    position: relative;
+    display: block;
+    padding: 0px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .arrow .arrow_control .arrow_icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+  }
   /* Webkit-text-stroke is not supported on firefox or IE */
   /* Firefox */
   /* color: #ECBE24; */
@@ -366,6 +424,24 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 100%;
+}
+.review-content {
+  width: 100%;
+  line-height: 1.4;
+  color: rgb(17, 17, 17);
+  font-size: 16px;
+  text-align: left;
+}
+.review-content .SimpleShortener{
+  position: relative;
+  overflow: hidden;
+  max-height: 67px;
+}
+.ShortenedText {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgba(17, 17, 17, 0.5);
 }
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
