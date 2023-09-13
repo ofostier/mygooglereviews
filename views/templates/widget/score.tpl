@@ -186,6 +186,17 @@
       </div>
       <div class="carousel-container-layout-1">
          <div class="carousel-layout">
+
+            <div aria-label="Previous" role="button" class="arrow-previous" style="width: 32px; height: 32px; flex-basis: 32px; margin-left: 8px;">
+               <div class="arrow_control" style="width: 32px; height: 32px; background-color: rgb(187, 111, 88); fill: rgb(17, 17, 17); box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px 0px;">
+                  <div class="arrow_icon">
+                     <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.96 1.96a1 1 0 0 1 1.497 1.32l-.083.094L5.747 8l4.627 4.626a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.32.084l-.094-.084-5.334-5.333a1 1 0 0 1-.083-1.32l.083-.094L8.96 1.96Z"></path></svg>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
             <div class='wrap'>
                <div class='carousel is-set'>
                {foreach from=$reviews item=review}
@@ -265,7 +276,7 @@
 
             </div>
             {* Next button *}
-            <div aria-label="Next" role="button" class="arrow" style="width: 32px; height: 32px; flex-basis: 32px; margin-right: 8px;">
+            <div aria-label="Next" role="button" class="arrow-next" style="width: 32px; height: 32px; flex-basis: 32px; margin-right: 8px;">
                <div class="arrow_control" style="width: 32px; height: 32px; background-color: rgb(187, 111, 88); fill: rgb(17, 17, 17); box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px 0px;">
                   <div class="arrow_icon">
                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

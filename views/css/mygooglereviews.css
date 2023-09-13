@@ -155,7 +155,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .arrow {
+  .arrow-previous {
+    z-index: 2;
+    flex: 0 1 0%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+    left: 0px;
+  }
+  .arrow-next {
     z-index: 2;
     flex: 0 1 0%;
     position: absolute;
@@ -163,7 +171,7 @@
     transform: translate(0px, -50%);
     right: 0px;
   }
-  .arrow .arrow_control {
+  .arrow_control {
     position: relative;
     display: block;
     padding: 0px;
@@ -173,7 +181,7 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
-  .arrow .arrow_control .arrow_icon {
+  .arrow_control .arrow_icon {
     position: absolute;
     top: 50%;
     left: 50%;
