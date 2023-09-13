@@ -495,14 +495,14 @@ class mygooglereviews extends Module implements WidgetInterface
             ]
         );
 
-        // $this->context->controller->registerJavascript(
-        //     'mymodule-javascript',
-        //     'modules/' . $this->name . '/views/js/mygooglereviews.js',
-        //     [
-        //         'position' => 'bottom',
-        //         'priority' => 1000,
-        //     ]
-        // );
+        $this->context->controller->registerJavascript(
+            'mymodule-javascript',
+            'modules/' . $this->name . '/views/js/mygooglereviews.js',
+            [
+                'position' => 'bottom',
+                'priority' => 1000,
+            ]
+        );
     }
 
     public function hookHeader() {
