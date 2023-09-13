@@ -184,91 +184,97 @@
             </a>
          </div>
       </div>
-      <div class='wrap'>
-         <div class='carousel is-set'>
-         {foreach from=$reviews item=review}
-            <div class='carousel-seat'>
-               <div class="car-review_container">
-                  <div class="author-block">
-                     <a class="link-container" aria-label="View on Google" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNCdXBHSVh3EAE!2m1!1s0x0:0xab2e0a605780dff8!3m1!1s2@1:CIHM0ogKEICAgICBupGIXw%7CCgwIkNvZoQYQ4PyrgQM%7C" target="_blank" rel="noopener noreferrer nofollow">
-                        <div class="review-avatar-container">
-                           <div class="avatar-container">
-                              <div class="avatar-background"><img src="{$review.profile_photo_url}" alt="{$review.author_name}" class="avatar-style"></div>
-                           </div>
-                           <div class="review-avatar-source-icon">
-                              <div class="review-source-source-icon">
-                                 <div>
-                                    <div>
-                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="injected-svg" data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-icons-google-multicolor-stroke.svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                          <g clip-path="url(#a-2)">
-                                             <path fill="#fff" stroke="#fff" stroke-linejoin="round" stroke-width="2" d="M11.8 1C5.835 1 1 5.835 1 11.8v.4C1 18.165 5.835 23 11.8 23c5.965 0 10.8-4.835 10.8-10.8v-.4C22.6 5.835 17.765 1 11.8 1Z"></path>
-                                             <path fill="#2A84FC" d="M21.579 12.234c0-.677-.055-1.359-.172-2.025h-9.403v3.839h5.384a4.615 4.615 0 0 1-1.992 3.029v2.49h3.212c1.886-1.736 2.97-4.3 2.97-7.333Z"></path>
-                                             <path fill="#00AC47" d="M12.004 21.974c2.688 0 4.956-.882 6.608-2.406l-3.213-2.491c-.893.608-2.047.952-3.392.952-2.6 0-4.806-1.754-5.597-4.113H3.095v2.567a9.97 9.97 0 0 0 8.909 5.491Z"></path>
-                                             <path fill="#FFBA00" d="M6.407 13.916a5.971 5.971 0 0 1 0-3.817V7.531H3.095a9.977 9.977 0 0 0 0 8.953l3.312-2.568Z"></path>
-                                             <path fill="#FC2C25" d="M12.004 5.982a5.417 5.417 0 0 1 3.824 1.494l2.846-2.846a9.581 9.581 0 0 0-6.67-2.593A9.967 9.967 0 0 0 3.095 7.53l3.312 2.57c.787-2.363 2.996-4.117 5.597-4.117Z"></path>
-                                          </g>
-                                          <defs>
-                                             <clipPath id="a-2">
-                                                <path fill="#fff" d="M0 0h24v24H0z"></path>
-                                             </clipPath>
-                                          </defs>
-                                       </svg>
+      <div class="carousel-container-layout-1">
+         <div class="carousel-layout">
+            <div class='wrap'>
+               <div class='carousel is-set'>
+               {foreach from=$reviews item=review}
+                  <div class='carousel-seat'>
+                     <div class="car-review_container">
+                        <div class="author-block">
+                           <a class="link-container" aria-label="View on Google" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNCdXBHSVh3EAE!2m1!1s0x0:0xab2e0a605780dff8!3m1!1s2@1:CIHM0ogKEICAgICBupGIXw%7CCgwIkNvZoQYQ4PyrgQM%7C" target="_blank" rel="noopener noreferrer nofollow">
+                              <div class="review-avatar-container">
+                                 <div class="avatar-container">
+                                    <div class="avatar-background"><img src="{$review.profile_photo_url}" alt="{$review.author_name}" class="avatar-style"></div>
+                                 </div>
+                                 <div class="review-avatar-source-icon">
+                                    <div class="review-source-source-icon">
+                                       <div>
+                                          <div>
+                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="injected-svg" data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-icons-google-multicolor-stroke.svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <g clip-path="url(#a-2)">
+                                                   <path fill="#fff" stroke="#fff" stroke-linejoin="round" stroke-width="2" d="M11.8 1C5.835 1 1 5.835 1 11.8v.4C1 18.165 5.835 23 11.8 23c5.965 0 10.8-4.835 10.8-10.8v-.4C22.6 5.835 17.765 1 11.8 1Z"></path>
+                                                   <path fill="#2A84FC" d="M21.579 12.234c0-.677-.055-1.359-.172-2.025h-9.403v3.839h5.384a4.615 4.615 0 0 1-1.992 3.029v2.49h3.212c1.886-1.736 2.97-4.3 2.97-7.333Z"></path>
+                                                   <path fill="#00AC47" d="M12.004 21.974c2.688 0 4.956-.882 6.608-2.406l-3.213-2.491c-.893.608-2.047.952-3.392.952-2.6 0-4.806-1.754-5.597-4.113H3.095v2.567a9.97 9.97 0 0 0 8.909 5.491Z"></path>
+                                                   <path fill="#FFBA00" d="M6.407 13.916a5.971 5.971 0 0 1 0-3.817V7.531H3.095a9.977 9.977 0 0 0 0 8.953l3.312-2.568Z"></path>
+                                                   <path fill="#FC2C25" d="M12.004 5.982a5.417 5.417 0 0 1 3.824 1.494l2.846-2.846a9.581 9.581 0 0 0-6.67-2.593A9.967 9.967 0 0 0 3.095 7.53l3.312 2.57c.787-2.363 2.996-4.117 5.597-4.117Z"></path>
+                                                </g>
+                                                <defs>
+                                                   <clipPath id="a-2">
+                                                      <path fill="#fff" d="M0 0h24v24H0z"></path>
+                                                   </clipPath>
+                                                </defs>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </a>
+                           <div class="author-block-info-container">
+                              <a class="link-container" aria-label="View on Google" href="{$review.author_url}" target="_blank" rel="noopener noreferrer nofollow">
+                                 <span class="review-author-name">{$review.author_name}</span>
+                                 <div class="review-verified-badge-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" class="review-verified-badge-icon">
+                                       <path fill="#197BFF" d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"></path>
+                                       <path fill="#fff" fill-rule="evenodd" d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z" clip-rule="evenodd"></path>
+                                    </svg>
+                                 </div>
+                              </a>
+                              <div class="review-info-container">
+                                 <div class="review-info-info-block">
+                                    <div class="review-info-date-container">
+                                       <div datetime="April 27, 2023 at 10:20 AM GMT+2" class="info-date">{$review.relative_time_description}</div>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
-                     </a>
-                     <div class="author-block-info-container">
-                        <a class="link-container" aria-label="View on Google" href="{$review.author_url}" target="_blank" rel="noopener noreferrer nofollow">
-                           <span class="review-author-name">{$review.author_name}</span>
-                           <div class="review-verified-badge-container">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" class="review-verified-badge-icon">
-                                 <path fill="#197BFF" d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"></path>
-                                 <path fill="#fff" fill-rule="evenodd" d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z" clip-rule="evenodd"></path>
-                              </svg>
-                           </div>
-                        </a>
-                        <div class="review-info-container">
-                           <div class="review-info-info-block">
-                              <div class="review-info-date-container">
-                                 <div datetime="April 27, 2023 at 10:20 AM GMT+2" class="info-date">{$review.relative_time_description}</div>
+                        <div class="review-align-container">
+                           <div class="review-content-container">
+                              <div class="review-content-rating">
+                                 <div class="ratings">
+                                    <div class="empty-stars"></div>
+                                    <div class="full-stars" style="width:{$scorepercent}%"></div>
+                                 </div>
+                              </div>
+                              <div class="review-content">
+                                 <div class="SimpleShortener">
+                                    <div class="SimpleShortener__Inner-sc-19xjxqz-1 biILtm">
+                                       <div>{$review.text}</div>
+                                    </div>
+                                 </div>
+                                 <div tabindex="0" class="ShortenedText"><a target="_blank" href="{$review.author_url}">Lire la suite</a></div>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <div class="review-align-container">
-                     <div class="review-content-container">
-                        <div class="review-content-rating">
-                           <div class="ratings">
-                              <div class="empty-stars"></div>
-                              <div class="full-stars" style="width:{$scorepercent}%"></div>
-                           </div>
-                        </div>
-                        <div class="review-content">
-                           <div class="SimpleShortener">
-                              <div class="SimpleShortener__Inner-sc-19xjxqz-1 biILtm">
-                                 <div>{$review.text}</div>
-                              </div>
-                           </div>
-                           <div tabindex="0" class="ShortenedText"><a target="_blank" href="{$review.author_url}">Lire la suite</a></div>
-                        </div>
+               {/foreach}
+               </div>
+
+            </div>
+            {* Next button *}
+            <div aria-label="Next" role="button" class="arrow" style="width: 32px; height: 32px; flex-basis: 32px; margin-right: 8px;">
+               <div class="arrow_control" style="width: 32px; height: 32px; background-color: rgb(187, 111, 88); fill: rgb(17, 17, 17); box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px 0px;">
+                  <div class="arrow_icon">
+                     <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M7.04 1.96a1 1 0 0 0-1.497 1.32l.083.094L10.253 8l-4.627 4.626a1 1 0 0 0-.083 1.32l.083.094a1 1 0 0 0 1.32.084l.094-.084 5.334-5.333a1 1 0 0 0 .083-1.32l-.083-.094L7.04 1.96Z"></path></svg>
                      </div>
                   </div>
                </div>
             </div>
-         {/foreach}
          </div>
-         {* <div aria-label="Next" role="button" class="arrow" style="width: 32px; height: 32px; flex-basis: 32px; margin-right: 8px;">
-            <div class="arrow_control" style="width: 32px; height: 32px; background-color: rgb(187, 111, 88); fill: rgb(17, 17, 17); box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px 0px;">
-               <div class="arrow_icon">
-                  <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                     <path fill-rule="evenodd" d="M7.04 1.96a1 1 0 0 0-1.497 1.32l.083.094L10.253 8l-4.627 4.626a1 1 0 0 0-.083 1.32l.083.094a1 1 0 0 0 1.32.084l.094-.084 5.334-5.333a1 1 0 0 0 .083-1.32l-.083-.094L7.04 1.96Z"></path></svg>
-                  </div>
-               </div>
-            </div>
-         </div> *}
       </div>
     {* <div class='controls'>
       <button class='toggle'>Prev</button>

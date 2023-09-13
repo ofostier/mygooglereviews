@@ -458,6 +458,18 @@
   }
 } */
 
+.carousel-container-layout-1 {
+  display: grid;
+  grid-template-columns: minmax(0px, 1fr);
+}
+.carousel-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
 .wrap {
   overflow: hidden;
 }
