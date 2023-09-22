@@ -1,0 +1,54 @@
+<div class="slider-container-outer">
+    <div id="slider-container" class="slider-container-transition">
+       <div class="slider-item" data-position="1">Item 1</div>
+       <div class="slider-item" data-position="2">Item 2</div>
+       <div class="slider-item" data-position="3">Item 3</div>
+       <div class="slider-item" data-position="4">Item 4</div>
+       <div class="slider-item" data-position="1">Item 5</div>
+       <div class="slider-item" data-position="2">Item 6</div>
+       <div class="slider-item" data-position="3">Item 7</div>
+       <div class="slider-item" data-position="4">Item 8</div>
+    </div>
+ </div>
+
+<style>
+.slider-container-outer {
+    height: 5em;
+    background-color: rgb(226, 43, 119);
+    display: grid;
+    width: 20%;
+    overflow: hidden;
+}
+
+.slider-container-transition {
+    display: flex;
+  /* flex-wrap: wrap;  */
+  /* permet à l'élément d'être répartis sur 
+  plusieurs lignes s'il n'y a pas assez de place */
+  justify-content: space-between; 
+  justify-content: flex-start;
+  /* permet de répartir les éléments uniformément 
+  entre le bord gauche et droit avec aucun espace
+  sur les bords */
+  /* align-content: space-between;  */
+  /* permet de répartir les lignes uniformément entre
+  le haut et le bas avec aucun espace sur les bords */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  overflow-x: auto;
+    
+}
+.slider-item {
+    border-radius: 12px;
+    width: 33%;
+    border: solid;
+    border-color: rgb(151, 146, 146);
+    text-align: center;
+    flex: 1 0 calc(33.33% - 20px);
+  
+  /* utilise flex-grow et flex-basis pour répartir les
+  éléments sur une grille de 3 colonnes en utilisant
+  33.33% de la largeur disponible et en 
+  réduisant l'espace entre chaque élément de 20px */
+}
+</style>
