@@ -560,7 +560,7 @@
   order: 1;
 }
 
-h2 {
+.carousel h2 {
   color: #aaa;
   font-size: 7em;
   font-weight: normal;
